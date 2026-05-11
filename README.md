@@ -30,4 +30,4 @@ Website bán điện thoại online được thiết kế lấy cảm hứng t�
 Clone project:
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/vuloc080611/Website-TechZone.git
