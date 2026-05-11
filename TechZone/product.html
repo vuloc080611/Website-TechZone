@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản phẩm - TechZone</title>
+    <!--Themify Icon-->
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <!--Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/product-detail.css">
+    <!--Header & Footer CSS-->
+    <link rel="stylesheet" href="./assets/css/header&footer.css">
+
+    <style>
+        #pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .product-card {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-wrapper">
+      <div class="top-bar d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center py-1">
+            <div class="top-bar-left d-flex gap-3">
+              <span><i class="bi bi-receipt"></i> Xuất VAT đầy đủ</span>
+              <span
+                ><i class="bi bi-truck"></i> Giao nhanh - Miễn phí đơn
+                300k</span
+              >
+              <span
+                ><i class="bi bi-arrow-repeat"></i> Thu cũ đổi mới tiết
+                kiệm</span
+              >
+            </div>
+            <div class="top-bar-right d-flex gap-3">
+              <a href="#"><i class="bi bi-geo-alt"></i> Cửa hàng gần bạn</a>
+              <a href="#"><i class="bi bi-box-seam"></i> Tra cứu đơn hàng</a>
+              <a href="tel:18002097"
+                ><i class="bi bi-telephone"></i> Hotline: 1800 2097</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header class="main-header sticky-top py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <a href="index.html" class="header-logo d-flex justify-content-between align-items-center text-decoration-none">
+              <img src="img/log.png" alt="TechZone" id="logo" />
+              <h1 class="logo-text">TECHZONE</h1>
+            </a>
+
+            <div class="category-wrapper d-none d-lg-block">
+              <button class="header-btn" id="btn-mega-menu">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+              </button>
+
+              <div class="mega-menu shadow-sm">
+                <ul class="mega-list">
+                  <li>
+                    <a href="about.html">
+                      <i class="bi bi-info-circle"></i> Giới thiệu TechZone
+                      <i class="bi bi-chevron-right ms-auto"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="news.html"
+                      ><i class="bi bi-newspaper"></i> Tin công nghệ
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li><hr class="dropdown-divider mx-3" /></li>
+
+                  <li class="has-submenu">
+                    <a href="javascript:void(0)" class="submenu-toggle">
+                      <i class="bi bi-phone"></i> Điện thoại, Tablet
+                      <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+
+                    <div class="sub-menu-accordion">
+                      <ul class="sub-list">
+                        <li>
+                          <a href="iphone.html"
+                            ><i class="bi bi-apple"></i> iPhone</a
+                          >
+                        </li>
+                        <li>
+                          <a href="samsung.html"
+                            ><i class="bi bi-phone-vibrate"></i> Samsung</a
+                          >
+                        </li>
+                        <li>
+                          <a href="oppo.html"
+                            ><i class="bi bi-phone-flip"></i> Oppo</a
+                          >
+                        </li>
+                        <li>
+                          <a href="xiaomi.html"
+                            ><i class="bi bi-device-ssd"></i> Xiaomi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="product.html"
+                            ><i class="bi bi-phone"></i> Tất cả sản phẩm</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-laptop"></i> Laptop
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-headphones"></i> Âm thanh, Mic
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-smartwatch"></i> Đồng hồ, Camera
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="header-location dropdown d-none d-xl-block">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-geo-alt"></i>
+                <div class="text-start ms-1">
+                  <div class="fw-bold">
+                    Chọn tỉnh thành <i class="bi bi-chevron-down"></i>
+                  </div>
+                </div>
+              </button>
+              <ul class="dropdown-menu border-0 shadow">
+                <li><a class="dropdown-item" href="#">Hồ Chí Minh</a></li>
+                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                <li><a class="dropdown-item" href="#">Thừa Thiên - Huế</a></li>
+              </ul>
+            </div>
+
+            <div class="header-search flex-grow-1">
+              <form action="product.html" class="search-form">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Bạn muốn mua gì hôm nay?"
+                />
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+
+            <a href="cart.html" class="header-btn text-decoration-none">
+              <div class="position-relative me-1">
+                <i class="bi bi-cart3"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </div>
+              <span class="d-none d-md-inline">Giỏ hàng</span>
+            </a>
+
+            <div class="dropdown">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-person-circle"></i>
+                <span class="ms-1 d-none d-lg-inline" id="display-username"
+                  >Đăng nhập</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end border-0 shadow"
+                id="user-menu"
+              >
+                <li>
+                  <a class="dropdown-item" href="login.html">Đăng Nhập</a>
+                </li>
+                <li><a class="dropdown-item" href="signup.html">Đăng Ký</a></li>
+              </ul>
+            </div>
+
+            <button
+              class="btn d-lg-none text-white fs-2 border-0"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container my-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-secondary text-decoration-none">Trang
+                        chủ</a></li>
+                <li class="breadcrumb-item active fw-bold text-success">Tất cả sản phẩm</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+
+            <div class="col-lg-3 mb-4">
+
+                <div class="sidebar-card">
+                    <div class="sidebar-header"><i class="ti-menu"></i> Danh Mục</div>
+                    <ul class="category-list">
+                        <li class="category-item active" onclick="filterHTML('all', this)">Tất cả sản phẩm <i
+                                class="ti-angle-right"></i></li>
+                        <li class="category-item" onclick="filterHTML('iphone', this)">Apple iPhone <i
+                                class="ti-angle-right"></i></li>
+                        <li class="category-item" onclick="filterHTML('samsung', this)">Samsung <i
+                                class="ti-angle-right"></i></li>
+                        <li class="category-item" onclick="filterHTML('oppo', this)">Oppo <i class="ti-angle-right"></i>
+                        </li>
+                        <li class="category-item" onclick="filterHTML('xiaomi', this)">Xiaomi <i
+                                class="ti-angle-right"></i></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-header"><i class="ti-filter"></i> Lọc Giá</div>
+                    <div class="p-3">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="sortPrice" id="sortDefault" checked
+                                onclick="sortHTML('default')">
+                            <label class="form-check-label" for="sortDefault">Mặc định</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="sortPrice" id="sortLowHigh"
+                                onclick="sortHTML('asc')">
+                            <label class="form-check-label" for="sortLowHigh">Thấp đến Cao</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sortPrice" id="sortHighLow"
+                                onclick="sortHTML('desc')">
+                            <label class="form-check-label" for="sortHighLow">Cao đến Thấp</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+
+                <div
+                    class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded shadow-sm border">
+                    <span class="fw-bold text-secondary" id="countLabel">Đang tải sản phẩm...</span>
+                    <div class="search-box">
+                        <span class="material-symbols-outlined" onclick="searchHTML()">search</span>
+                        <input type="text" id="searchInput" placeholder="Tìm tên điện thoại..." onkeyup="searchHTML()">
+                    </div>
+                </div>
+
+                <div class="row g-3" id="productListHTML">
+                </div>
+                <div id="pagination"></div>
+                <!-- IPHONE -->
+
+                <!-- IPHONE 17 PRO MAX -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17promax.html'">
+                            <img src="img/17promax/17promax-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17promax.html'">iPhone 17 Pro
+                                Max 256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">37.690.000₫</span>
+                                <span class="price-old">39.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17promax.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17promax.html'">
+                            <img src="img/17promax/17promax-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17promax.html'">iPhone 17 Pro
+                                Max 512GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">42.990.000</span>
+                                <span class="price-old">44.490.000</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17promax.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17promax.html'">
+                            <img src="img/17promax/17promax-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17promax.html'">iPhone 17 Pro
+                                Max 1TB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">48.990.000₫</span>
+                                <span class="price-old">50.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17promax.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPHONE 17 PRO -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17pro.html'">
+                            <img src="img/17promax/17promax-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17pro.html'">iPhone 17 Pro
+                                256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">33.290.000₫</span>
+                                <span class="price-old">34.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17pro.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17pro.html'">
+                            <img src="img/17promax/17promax-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17pro.html'">iPhone 17 Pro
+                                512GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">40.590.000₫</span>
+                                <span class="price-old">41.490.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17pro.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17pro.html'">
+                            <img src="img/17promax/17promax-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17pro.html'">iPhone 17 Pro
+                                1TB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">46.990.000₫</span>
+                                <span class="price-old">47.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17pro.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPHONE 17 -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17.html'">
+                            <img src="img/iphone17/iphone17-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17.html'">iPhone 17
+                                256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">24.190.000₫</span>
+                                <span class="price-old">24.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17.html'">
+                            <img src="img/iphone17/iphone17-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17.html'">iPhone 17
+                                512GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">30.490.000₫</span>
+                                <span class="price-old">31.490.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPHONE 17 AIR -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17air.html'">
+                            <img src="img/iphoneair/iphoneair-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17air.html'">iPhone Air
+                                256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">24.890.000₫</span>
+                                <span class="price-old">31.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17air.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17air.html'">
+                            <img src="img/iphoneair/iphoneair-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17air.html'">iPhone Air
+                                512GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">31.490.000₫</span>
+                                <span class="price-old">31.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17air.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-17air.html'">
+                            <img src="img/iphoneair/iphoneair-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-17air.html'">iPhone Air
+                                1TB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">35.990.000₫</span>
+                                <span class="price-old">44.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-17air.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPHONE 16 PRO MAX -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16promax.html'">
+                            <img src="img/iphone16prm/iphone16prm-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16promax.html'">iPhone 16 Pro
+                                Max 256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">31.490.000₫</span>
+                                <span class="price-old">34.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16promax.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-6%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16promax.html'">
+                            <img src="img/iphone16prm/iphone16prm-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16promax.html'">iPhone 16 Pro
+                                Max 512GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">39.490.000₫</span>
+                                <span class="price-old">40.990.000</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16promax.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-9%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16promax.html'">
+                            <img src="img/iphone16prm/iphone16prm-2.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16promax.html'">iPhone 16 Pro
+                                Max 1TB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">43.990.000₫</span>
+                                <span class="price-old">46.990.000</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16promax.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPHONE 16e -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16e.html'">
+                            <img src="img/iphone16e/iphone16e-1.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16e.html'">iPhone 16e
+                                128GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">12.490.000₫</span>
+                                <span class="price-old">16.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16e.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16e.html'">
+                            <img src="img/iphone16e/iphone16e-1.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16e.html'">iPhone 16e
+                                256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">15.490.000₫</span>
+                                <span class="price-old">19.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16e.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPHONE 16 128GB -->
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16.html'">
+                            <img src="img/iphone16/iphone16-1.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16.html'">iPhone 16
+                                128GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">19.590.000₫</span>
+                                <span class="price-old">22.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16.html'">
+                            <img src="img/iphone16/iphone16-1.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16.html'">iPhone 16
+                                256GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">22.990.000₫</span>
+                                <span class="price-old">25.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item iphone" data-price="46990000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/iphone-16.html'">
+                            <img src="img/iphone16/iphone16-1.jpg" alt="iPhone" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/iphone-16.html'">iPhone 16
+                                512GB | Chính hãng</h5>
+                            <div class="price-container">
+                                <span class="price-current">27.990.000₫</span>
+                                <span class="price-old">31.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/iphone-16.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- IPHONE  -->
+
+                <!-- SAMSUNG -->
+
+                <!-- SAMSUNG GALAXY S25 ULTRA 12 256 -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-21%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25ultra.html'">
+                            <img src="img/sa.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25ultra.html'">Samsung Galaxy
+                                S25 Ultra 12GB 256GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">25.990.000₫</span>
+                                <span class="price-old">33.380.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25ultra.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY S25 ULTRA 12 512 -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-22%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25ultra.html'">
+                            <img src="img/sa.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25ultra.html'">Samsung Galaxy
+                                S25 Ultra 12GB 512GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">29.990.000₫</span>
+                                <span class="price-old">36.810.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25ultra.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25ultra.html'">
+                            <img src="img/sa.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25ultra.html'">Samsung Galaxy
+                                S25 Ultra 12GB 1TB</h5>
+                            <div class="price-container">
+                                <span class="price-current">35.490.000₫</span>
+                                <span class="price-old">43.980.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25ultra.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY A56 5G 8GB 128GB -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-5%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-a56.html'">
+                            <img src="img/samsung-a56/samsung-a56-2.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-a56.html'">Samsung
+                                Galaxy A56 5G 8GB 128GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">8.590.000₫</span>
+                                <span class="price-old">9.810.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-a56.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SAMSUNG GALAXY A56 5G 8GB 512GB -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-a56.html'">
+                            <img src="img/samsung-a56/samsung-a56-2.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-a56.html'">Samsung
+                                Galaxy A56 5G 8GB 256GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">12.990.000₫</span>
+                                <span class="price-old">10.810.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-a56.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY S25 FE 8BG 128GB -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-17%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25fe.html'">
+                            <img src="img/samsung-s25fe/samsung-s25fe-2.jpg" alt="Samsung"
+                                onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25fe.html'">Samsung
+                                Galaxy S25 FE 8GB 256GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">13.890.000₫</span>
+                                <span class="price-old">16.690.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25fe.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY S25 FE 8GB 512GB -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-17%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25fe.html'">
+                            <img src="img/samsung-s25fe/samsung-s25fe-2.jpg" alt="Samsung"
+                                onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25fe.html'">Samsung
+                                Galaxy S25 FE 8GB 512GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">16.590.000₫</span>
+                                <span class="price-old">21.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25fe.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-18%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25.html'">
+                            <img src="img/samsung-s25/samsung-s25-2.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25.html'">Samsung
+                                Galaxy S25 8GB 256GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">17.590.000₫</span>
+                                <span class="price-old">22.580.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-sale">-18%</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-s25.html'">
+                            <img src="img/samsung-s25/samsung-s25-2.jpg" alt="Samsung" onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-s25.html'">Samsung
+                                Galaxy S25 8GB 512GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">20.090.000₫</span>
+                                <span class="price-old">22.580.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-s25.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY Z FLIP 7 12GB 512GB -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-zflip7.html'">
+                            <img src="img/samsung-zflip7/samsung-zflip7-2.jpg" alt="Samsung"
+                                onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-zflip7.html'">Samsung
+                                Galaxy Z Flip7 12GB 512GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">28.990.000₫</span>
+                                <span class="price-old">32.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-zflip7.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY Z FLIP 7 12GB 256GB -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-zflip7.html'">
+                            <img src="img/samsung-zflip7/samsung-zflip7-2.jpg" alt="Samsung"
+                                onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-zflip7.html'">Samsung
+                                Galaxy Z Flip7 12GB 256GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">23.990.000₫</span>
+                                <span class="price-old">24.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-zflip7.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG GALAXY Z FOLD7 12 512 -->
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-zfold7.html'">
+                            <img src="img/samsung-zfold7/samsung-zfold7-2.jpg" alt="Samsung"
+                                onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-zfold7.html'">Samsung
+                                Galaxy Z Fold7 12GB 512GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">45.990.000₫</span>
+                                <span class="price-old">50.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-zfold7.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 product-item samsung" data-price="25000000">
+                    <div class="product-card h-100">
+                        <span class="badge-overlay badge-new">New</span>
+                        <div class="card-img-wrapper" onclick="window.location.href='item_info/samsung-zfold7.html'">
+                            <img src="img/samsung-zfold7/samsung-zfold7-2.jpg" alt="Samsung"
+                                onerror="this.src='img/log.png'">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="product-title" onclick="window.location.href='item_info/samsung-zfold7.html'">Samsung
+                                Galaxy Z Fold7 12GB 256GB</h5>
+                            <div class="price-container">
+                                <span class="price-current">39.590.000₫</span>
+                                <span class="price-old">45.990.000₫</span>
+                            </div>
+                            <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn-detail" onclick="window.location.href='item_info/samsung-zfold7.html'">Xem Chi
+                                Tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAMSUNG  -->
+
+            <!-- OPPO -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="12100000">
+                <div class="product-card h-100">
+                    <span class="badge-overlay badge-new">New</span>
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-findn3.html'">
+                        <img src="img/oppo-findn3/oppo-findn3-2.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-findn3.html'">OPPO Find N3 16GB
+                            512GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">41.990.000₫</span>
+                            <span class="price-old">44.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-findn3.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPPO FIND N3 FLIP 12 256 -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="13990000">
+                <div class="product-card h-100">
+                    <span class="badge-overlay badge-sale">-39%</span>
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-findn3flip.html'">
+                        <img src="img/oppo-findn3flip/oppo-findn3flip-2.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-findn3flip.html'">OPPO Find N3 12GB
+                            Flip 256GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">13.990.000₫</span>
+                            <span class="price-old">22.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-findn3flip.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPPO FIND X9 12 256 -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="22990000">
+                <div class="product-card h-100">
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-findx9.html'">
+                        <img src="img/oppo-findx9/oppo-findx9-1.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-findx9.html'">OPPO Find X9
+                            12GB 256GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">22.990.000₫</span>
+                            <span class="price-old">23.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-findx9.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPPO FIND X9 16 512 -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="26990000">
+                <div class="product-card h-100">
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-findx9.html'">
+                        <img src="img/oppo-findx9/oppo-findx9-1.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-findx9.html'">OPPO Find X9
+                            16GB 512GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">26.990.000₫</span>
+                            <span class="price-old">28.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-findx9.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPPO FIND X9 PRO 16 512 -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="32990000">
+                <div class="product-card h-100">
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-findx9pro.html'">
+                        <img src="img/oppo-findx9pro/oppo-findx9pro-1.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-findx9pro.html'">OPPO Find X9
+                            Pro 16GB 512GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">32.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-findx9pro.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPPO RENO14 F 5G 8 256 -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="10100000">
+                <div class="product-card h-100">
+
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-reno14f.html'">
+                        <img src="img/oppo-reno14f/oppo-reno14f-1.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-reno14f.html'">OPPO Reno14 F
+                            5G 8GB 256GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">10.100.000₫</span>
+                            <span class="price-old">10.490.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-reno14f.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPPO RENO14 F 5G 12 256 -->
+            <div class="col-md-4 col-sm-6 product-item oppo" data-price="41990000">
+                <div class="product-card h-100">
+
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/oppo-reno14f.html'">
+                        <img src="img/oppo-reno14f/oppo-reno14f-1.jpg" alt="Oppo Find N3"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/oppo-reno14f.html'">OPPO Reno14 F
+                            5G 12GB 256GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">12.100.000₫</span>
+                            <span class="price-old">14.490.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/oppo-reno14f.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <!-- OPPO -->
+
+            <!-- XIAOMI -->
+
+            <!-- XIAOMI 15T 12 512 -->
+            <div class="col-md-4 col-sm-6 product-item xiaomi" data-price="13490000">
+                <div class="product-card h-100">
+                    <span class="badge-overlay badge-sale">-39%</span>
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/xiaomi15t.html'">
+                        <img src="img/xiaomi-15t/den.jpg" alt="Xiaomi 15T" onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/xiaomi15t.html'">Xiaomi 15T 12GB
+                            512GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">13.490.000₫</span>
+                            <span class="price-old">14.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/xiaomi15t.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- XIAOMI 15T PRO 12 512 -->
+            <div class="col-md-4 col-sm-6 product-item xiaomi" data-price="17690000">
+                <div class="product-card h-100">
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/xiaomi15tpro.html'">
+                        <img src="img/xiaomi15tp/v.jpg" alt="Xiaomi 15T Pro" onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/xiaomi15tpro.html'">Xiaomi 15T PRO 12GB
+                            512GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">17.690.000₫</span>
+                            <span class="price-old">19.490.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/xiaomi15tpro.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- XIAOMI 15C 4 128 -->
+            <div class="col-md-4 col-sm-6 product-item xiaomi" data-price="3390000">
+                <div class="product-card h-100">
+                    <span class="badge-overlay badge-sale">-8%</span>
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/xiaomi15c4g.html'">
+                        <img src="img/xiaomi-redmi15c/xiaomi-redmi15c-1.jpg" alt="Xiaomi 15C 4GB 128GB"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/xiaomi15c4g.html'">Xiaomi 15C 4GB
+                            128GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">3.390.000₫</span>
+                            <span class="price-old">3.790.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/xiaomi15c4g.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- XIAOMI 15C 8 256 -->
+            <div class="col-md-4 col-sm-6 product-item xiaomi" data-price="3790000">
+                <div class="product-card h-100">
+                    <span class="badge-overlay badge-sale">-8%</span>
+                    <div class="card-img-wrapper" onclick="window.location.href='item_info/xiaomi15c8g.html'">
+                        <img src="img/xiaomi-redmi15c/xiaomi-redmi15c-1.jpg" alt="Xiaomi 15C 8GB 256GB"
+                            onerror="this.src='img/log.png'">
+                    </div>
+                    <div class="card-content">
+                        <h5 class="product-title" onclick="window.location.href='item_info/xiaomi15c8g.html'">Xiaomi 15C 8GB
+                            256GB</h5>
+                        <div class="price-container">
+                            <span class="price-current">3.790.000₫</span>
+                            <span class="price-old">4.990.000₫</span>
+                        </div>
+                        <div class="rating-star"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <button class="btn-detail" onclick="window.location.href='item_info/xiaomi15c8g.html'">Xem Chi
+                            Tiết</button>
+                    </div>
+                </div>
+            </div>
+            <!-- XIAOMI -->
+        </div>
+    </div>
+
+
+    <!-- =========== -->
+    <button class="to-top" href="#"><i class="ti-angle-double-up"></i></button>
+    <button class="contact-btn" href="#"><a href="contact.html"><i class="ti-headphone-alt"></i></a></button>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo-container mb-3">
+                        <img src="./img/log.png" alt="TechZone Logo" class="img-fluid"
+                            style="height: 70px; filter: brightness(0) invert(1);">
+                    </div>
+                    <p class="footer-desc">
+                        TechZone - Hệ thống bán lẻ điện thoại, máy tính bảng, phụ kiện chính hãng uy tín hàng đầu.
+                        Cam kết chất lượng, bảo hành trọn đời.
+                    </p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-youtube"></i></a>
+                        <a href="#"><i class="ti-instagram"></i></a>
+                        <a href="#"><i class="ti-twitter-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Hỗ Trợ Khách Hàng</h5>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#">Tra cứu bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Thông Tin Liên Hệ</h5>
+                    <ul class="footer-contact list-unstyled">
+                        <li>
+                            <i class="ti-location-pin"></i>
+                            <span>12 Nguyễn Văn Bảo, Gò Vấp, TP.HCM</span>
+                        </li>
+                        <li>
+                            <i class="ti-mobile"></i>
+                            <span>1900 888 999 (8h - 22h)</span>
+                        </li>
+                        <li>
+                            <i class="ti-email"></i>
+                            <span>support@techzone.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Chấp Nhận Thanh Toán</h5>
+                    <div class="payment-methods mb-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" height="30">
+                        <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Mastercard" height="30">
+                        <img src="img/momo.png" alt="MoMo" height="30">
+                    </div>
+
+                    <h5 class="footer-heading">Đăng Ký Nhận Tin</h5>
+                    <p class="small text-white-50 mb-2">Nhận thông tin khuyến mãi mới nhất</p>
+                    <div class="subscribe-form position-relative">
+                        <input type="email" class="form-control rounded-pill pe-5" placeholder="Email của bạn...">
+                        <button
+                            class="btn btn-success rounded-circle position-absolute top-0 end-0 m-1 d-flex align-items-center justify-content-center"
+                            style="width: 38px; height: 38px;">
+                            <i class="ti-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright-area mt-5 py-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="m-0 text-white opacity-75">© 2026 <b>TechZone</b>. All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end d-none d-md-block">
+                        <p class="m-0 text-white opacity-75">Designed by TechZone</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="assets/js/dropdown.js"></script>
+<script src="main.js"></script>
+<script src="../DienThoai/assets/js/search-suggest.js"></script>
+<script src="../DienThoai/assets/js/price-filter.js"></script>
+<script>
+    const toTopBtn = document.querySelector(".to-top");
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 50) {
+            toTopBtn.classList.add('active');
+        } else {
+            toTopBtn.classList.remove('active');
+        }
+    })
+
+    $(document).ready(function () {
+        $('.to-top').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+            return false;
+        });
+    });
+</script>
+
+</html>

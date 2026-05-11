@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 16e - TechZone</title>
+    <link href="./img/icon.ico" rel="shortcut icon" type="../image/vnd.microsoft.icon">
+
+    <!--Themify Icon-->
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/fonts/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!--Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/product-detail.css">
+    
+    <!--Header & Footer CSS-->
+    <link rel="stylesheet" href="../assets/css/header&footer.css">
+    <style>
+        body {
+            background-color: #f4f6f8; 
+            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-item a { color: #6c757d; text-decoration: none; font-size: 14px; }
+        .breadcrumb-item.active { color: #333; font-weight: 600; }
+
+        /* Khung chứa chính */
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06); /* Bóng đổ xịn */
+            padding: 30px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        /* --- CỘT TRÁI: ẢNH SẢN PHẨM --- */
+        .gallery-container {
+            position: sticky;
+            top: 20px; 
+            padding-right: 20px;
+        }
+        
+        .main-img-box {
+            width: 100%;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #fff;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+        /* Hiệu ứng zoom nhẹ khi di chuột vào ảnh */
+        .main-img-box:hover img { transform: scale(1.05); }
+        .main-img-box img { 
+            max-width: 90%; max-height: 90%; 
+            object-fit: contain; transition: transform 0.3s; 
+        }
+
+        .thumb-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .thumb-item {
+            height: 70px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .thumb-item img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .thumb-item:hover, .thumb-item.active {
+            border-color: #d70018;
+            box-shadow: 0 0 0 2px rgba(215,0,24,0.1);
+        }
+
+        /* --- CSS CHO NÚT MŨI TÊN --- */
+        .main-img-box { 
+            position: relative; 
+            overflow: hidden;
+        }
+
+        .nav-btn {
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); /* Căn giữa dọc */
+            width: 40px; height: 40px;
+            background: rgba(255, 255, 255, 0.8); /* Nền trắng mờ */
+            border: 1px solid #ddd; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: #333; z-index: 10;
+            opacity: 0; /* Mặc định ẩn */
+            transition: all 0.3s;
+        }
+
+        /* Di chuột vào khung ảnh thì nút mới hiện */
+        .main-img-box:hover .nav-btn { opacity: 1; }
+
+        .nav-btn:hover { background: #d70018; color: white; border-color: #d70018; }
+
+        .btn-prev { left: 10px; }  /* Nút nằm bên trái */
+        .btn-next { right: 10px; } /* Nút nằm bên phải */
+
+        /* --- CỘT PHẢI: THÔNG TIN --- */
+        .product-title {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .rating-box {
+            display: flex; align-items: center; gap: 8px; font-size: 14px; margin-bottom: 20px;
+        }
+        .stars { color: #f59e0b; }
+        .rating-count { color: #666; text-decoration: underline; }
+
+        /* Giá tiền */
+        .price-area {
+            display: flex; align-items: flex-end; gap: 12px;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #fff5f5, #fff);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #d70018;
+        }
+        .current-price { color: #d70018; font-size: 32px; font-weight: 800; line-height: 1; }
+        .old-price { color: #999; text-decoration: line-through; font-size: 18px; padding-bottom: 3px; }
+        .discount-tag { 
+            background: #d70018; color: white; 
+            padding: 4px 8px; border-radius: 4px; 
+            font-size: 12px; font-weight: bold; margin-bottom: 5px; 
+        }
+
+        /* Label tiêu đề Option */
+        .option-header {
+            font-size: 15px; font-weight: 600; margin-bottom: 10px; display: block; color: #444;
+        }
+
+        /* --- GRID OPTIONS (Giữ logic cũ nhưng đẹp hơn) --- */
+        .grid-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 cột cứng */
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .tech-btn {
+            height: 55px; /* Cao hơn chút cho thoáng */
+            display: flex; flex-direction: column; 
+            justify-content: center; align-items: center;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-btn span { font-weight: 500; font-size: 14px; color: #333; z-index: 2; }
+        .tech-btn small { font-size: 11px; color: #888; margin-top: 2px; z-index: 2; }
+
+        .tech-btn:hover { border-color: #d70018; background: #fff9f9; transform: translateY(-2px); }
+
+        /* Active State Siêu Đẹp */
+        .active-style {
+            border: 1px solid #d70018 !important;
+            background-color: #fff0f0 !important;
+        }
+        .active-style span { color: #d70018; font-weight: 700; }
+        
+        /* Dấu tích góc */
+        .active-style::before {
+            content: ""; position: absolute; top: 0; left: 0;
+            width: 24px; height: 24px;
+            background: #d70018;
+            border-bottom-right-radius: 8px;
+            z-index: 1;
+        }
+        .active-style::after {
+            content: "✓"; position: absolute; top: 0px; left: 5px;
+            color: white; font-size: 12px; font-weight: bold; z-index: 3;
+        }
+
+        /* --- KHUYẾN MÃI BOX --- */
+        .promo-card {
+            border: 1px dashed #d70018;
+            background: #fffbfb;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .promo-title {
+            background: #fee2e2; color: #d70018;
+            padding: 10px 15px; font-weight: 700; font-size: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .promo-list { padding: 15px; margin: 0; list-style: none; }
+        .promo-list li {
+            margin-bottom: 8px; font-size: 14px; color: #333;
+            display: flex; gap: 8px;
+        }
+        .promo-list li i { color: #10b981; margin-top: 3px; }
+
+        /* --- NÚT MUA --- */
+        .action-group { margin-bottom: 25px; }
+        
+        .btn-buy-now {
+            background: linear-gradient(135deg, #f02f2f 0%, #d70018 100%);
+            color: white; width: 100%; border: none;
+            padding: 16px; border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(215, 0, 24, 0.3);
+            transition: all 0.3s;
+        }
+        .btn-buy-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(215, 0, 24, 0.4);
+            background: linear-gradient(135deg, #d70018 0%, #b00012 100%);
+        }
+        .btn-buy-now strong { font-size: 18px; text-transform: uppercase; display: block; }
+        .btn-buy-now span { font-size: 13px; opacity: 0.9; font-weight: normal; }
+
+        .btn-secondary-group { display: flex; gap: 10px; }
+        .btn-add-cart, .btn-installment {
+            flex: 1;
+            padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border: none; transition: 0.2s;
+        }
+        .btn-add-cart { 
+            background: #e8f3ff; color: #0071e3; border: 1px solid transparent; 
+        }
+        .btn-add-cart:hover { background: #dcebff; border-color: #0071e3; }
+        
+        .btn-installment { 
+            background: #fff; border: 1px solid #ddd; color: #333; 
+        }
+        .btn-installment:hover { border-color: #333; background: #f9f9f9; }
+
+        /* --- CHÍNH SÁCH --- */
+        .policy-box {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
+            border-top: 1px solid #eee; padding-top: 20px;
+        }
+        .policy-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #555; }
+        .policy-item i { font-size: 20px; color: #0071e3; }
+
+        /* Thông số kỹ thuật (Bảng đẹp) */
+        .specs-table { margin-top: 10px; font-size: 14px; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+        .specs-table tr:nth-child(odd) { background-color: #f9fafb; }
+        .specs-table th { color: #666; font-weight: 500; padding: 12px; width: 40%; }
+        .specs-table td { color: #333; font-weight: 600; padding: 12px; }
+
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+      <div class="top-bar d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center py-1">
+            <div class="top-bar-left d-flex gap-3">
+              <span><i class="bi bi-receipt"></i> Xuất VAT đầy đủ</span>
+              <span
+                ><i class="bi bi-truck"></i> Giao nhanh - Miễn phí đơn
+                300k</span
+              >
+              <span
+                ><i class="bi bi-arrow-repeat"></i> Thu cũ đổi mới tiết
+                kiệm</span
+              >
+            </div>
+            <div class="top-bar-right d-flex gap-3">
+              <a href="#"><i class="bi bi-geo-alt"></i> Cửa hàng gần bạn</a>
+              <a href="#"><i class="bi bi-box-seam"></i> Tra cứu đơn hàng</a>
+              <a href="tel:18002097"
+                ><i class="bi bi-telephone"></i> Hotline: 1800 2097</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header class="main-header sticky-top py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <a href="../index.html" class="header-logo d-flex justify-content-between align-items-center text-decoration-none">
+              <img src="../img/log.png" alt="TechZone" id="logo" />
+              <h1 class="logo-text">TECHZONE</h1>
+            </a>
+
+            <div class="category-wrapper d-none d-lg-block">
+              <button class="header-btn" id="btn-mega-menu">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+              </button>
+
+              <div class="mega-menu shadow-sm">
+                <ul class="mega-list">
+                  <li>
+                    <a href="../about.html">
+                      <i class="bi bi-info-circle"></i> Giới thiệu TechZone
+                      <i class="bi bi-chevron-right ms-auto"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="../about.html"
+                      ><i class="bi bi-newspaper"></i> Tin công nghệ
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li><hr class="dropdown-divider mx-3" /></li>
+
+                  <li class="has-submenu">
+                    <a href="javascript:void(0)" class="submenu-toggle">
+                      <i class="bi bi-phone"></i> Điện thoại, Tablet
+                      <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+
+                    <div class="sub-menu-accordion">
+                      <ul class="sub-list">
+                        <li>
+                          <a href="../iphone.html"
+                            ><i class="bi bi-apple"></i> iPhone</a
+                          >
+                        </li>
+                        <li>
+                          <a href="../samsung.html"
+                            ><i class="bi bi-phone-vibrate"></i> Samsung</a
+                          >
+                        </li>
+                        <li>
+                          <a href="../oppo.html"
+                            ><i class="bi bi-phone-flip"></i> Oppo</a
+                          >
+                        </li>
+                        <li>
+                          <a href="..xiaomi.html"
+                            ><i class="bi bi-device-ssd"></i> Xiaomi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="../product.html"
+                            ><i class="bi bi-phone"></i> Tất cả sản phẩm</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-laptop"></i> Laptop
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-headphones"></i> Âm thanh, Mic
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-smartwatch"></i> Đồng hồ, Camera
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="header-location dropdown d-none d-xl-block">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-geo-alt"></i>
+                <div class="text-start ms-1">
+                  <div class="fw-bold">
+                    Chọn tỉnh thành <i class="bi bi-chevron-down"></i>
+                  </div>
+                </div>
+              </button>
+              <ul class="dropdown-menu border-0 shadow">
+                <li><a class="dropdown-item" href="#">Hồ Chí Minh</a></li>
+                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                <li><a class="dropdown-item" href="#">Thừa Thiên - Huế</a></li>
+              </ul>
+            </div>
+
+            <div class="header-search flex-grow-1">
+              <form action="../product.html" class="search-form">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Bạn muốn mua gì hôm nay?"
+                />
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+
+            <a href="../cart.html" class="header-btn text-decoration-none">
+              <div class="position-relative me-1">
+                <i class="bi bi-cart3"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </div>
+              <span class="d-none d-md-inline">Giỏ hàng</span>
+            </a>
+
+            <div class="dropdown">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-person-circle"></i>
+                <span class="ms-1 d-none d-lg-inline" id="display-username"
+                  >Đăng nhập</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end border-0 shadow"
+                id="user-menu"
+              >
+                <li>
+                  <a class="dropdown-item" href="../login.html">Đăng Nhập</a>
+                </li>
+                <li><a class="dropdown-item" href="../signup.html">Đăng Ký</a></li>
+              </ul>
+            </div>
+
+            <button
+              class="btn d-lg-none text-white fs-2 border-0"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <main class="container my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="../index.html"><i class="ti-home"></i> Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="../product.html">Điện thoại</a></li>
+                <li class="breadcrumb-item"><a href="../iphone.html">Apple (iPhone)</a></li>
+                <li class="breadcrumb-item active">iPhone 16e</li>
+            </ol>
+        </nav>
+
+        <div class="product-card">
+            <div class="row gx-5">
+                <div class="col-lg-7 col-md-12">
+                    <div class="gallery-container">
+                        <div class="main-img-box">
+                            <button class="nav-btn btn-prev" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
+                            <img id="mainImage" src="../img/iphone16e/iphone16e-1.jpg" alt="iPhone 16e">
+                            <button class="nav-btn btn-next" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="thumb-list">
+                            <div class="thumb-item active" onclick="changeImage(this, '../img/iphone16e/iphone16e-1.jpg')">
+                                <img src="../img/iphone16e/iphone16e-1.jpg">
+                            </div>
+                            <div class="thumb-item" onclick="changeImage(this, '../img/iphone16e/iphone16e-2.jpg')">
+                                <img src="../img/iphone16e/iphone16e-2.jpg">
+                            </div>
+                            <div class="thumb-item" onclick="changeImage(this, '../img/iphone16e/iphone16e-3.jpg')">
+                                <img src="../img/iphone16e/iphone16e-3.jpg">
+                            </div>
+                             <div class="thumb-item" onclick="changeImage(this, '../img/iphone16e/iphone16e-4.jpg')">
+                                <img src="../img/iphone16e/iphone16e-4.jpg">
+                            </div>
+                            <div class="thumb-item" onclick="changeImage(this, '../img/iphone16e/iphone16e-5.jpg')">
+                                <img src="../img/iphone16e/iphone16e-5.jpg">
+                            </div>
+                            <div class="thumb-item" onclick="changeImage(this, '../img/iphone16e/iphone16e-6.jpg')">
+                                <img src="../img/iphone16e/iphone16e-6.jpg">
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top">
+                            <h5 class="fw-bold mb-3"><i class="fas fa-microchip me-2 text-primary"></i>Thông số nổi bật</h5>
+                            <table class="table specs-table">
+                                <tbody>
+                                    <tr><th>Màn hình</th><td>6.1 inches, Super Retina XDR OLED, 60Hz</td></tr>
+                                    <tr><th>Camera sau</th><td>48 MP Chính + 12 MP UltraWide</td></tr>
+                                    <tr><th>Camera trước</th><td>12 MP TrueDepth</td></tr>
+                                    <tr><th>Chipset</th><td>Apple A18</td></tr>
+                                    <tr><th>RAM / ROM</th><td>6 GB / 128GB - 256 GB</td></tr>
+                                    <tr><th>Pin & Sạc</th><td>~3300 mAh, USB-C, Sạc nhanh 50 % trong ~30 phút</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12">
+                    <h1 class="product-title" id="pName">Điện thoại iPhone 16e | Chính Hãng VN/A</h1>
+                    
+                    <div class="rating-box">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count">70 đánh giá</span>
+                        <span class="text-muted mx-2">|</span>
+                        <span class="text-success"><i class="fas fa-check-circle"></i> Đã bán 590</span>
+                    </div>
+
+                    <div class="price-area">
+                        <div>
+                            <span class="discount-tag">Giảm 26%</span>
+                            <div class="current-price" id="displayPrice">12.490.000₫</div>
+                        </div>
+                        <div class="old-price">16.990.000₫</div>
+                    </div>
+
+                    <span class="option-header">Chọn dung lượng:</span>
+                    <div class="grid-options" id="storageGroup">
+                        <div class="tech-btn btn-storage active-style" onclick="chooseStorage(this, 12490000)">
+                            <span>128GB</span>
+                        </div>
+                        <div class="tech-btn btn-storage" onclick="chooseStorage(this, 15490000)">
+                            <span>256GB</span>
+                        </div>
+                    </div>
+
+                    <span class="option-header">Chọn màu sắc:</span>
+                    <div class="grid-options" id="colorGroup">
+                        <div class="tech-btn btn-color active-style" onclick="chooseColor(this, 'Đen')">
+                            <span>Đen</span>
+                        </div>
+                        <div class="tech-btn btn-color" onclick="chooseColor(this, 'Trắng')">
+                            <span>Trắng</span>
+                        </div>
+                    </div>
+
+                    <div class="promo-card">
+                        <div class="promo-title"><i class="fas fa-gift"></i> ƯU ĐÃI ĐỘC QUYỀN</div>
+                        <ul class="promo-list">
+                            <li><i class="fas fa-check-circle"></i> Thu cũ đổi mới - Trợ giá đến 2.000.000đ.</li>
+                            <li><i class="fas fa-check-circle"></i> Tặng gói bảo hành VIP 1 đổi 1 trong 12 tháng.</li>
+                            <li><i class="fas fa-check-circle"></i> Giảm 20% khi mua kèm AirPods, Sạc dự phòng.</li>
+                            <li><i class="fas fa-check-circle"></i> Trả góp 0% lãi suất qua thẻ tín dụng.</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-group">
+                        <button class="btn-buy-now" onclick="buyNow()">
+                            <strong>MUA NGAY</strong>
+                            <span>(Giao hàng tận nơi hoặc nhận tại cửa hàng)</span>
+                        </button>
+                        <div class="btn-secondary-group">
+                            <button class="btn-add-cart" onclick="addToCartFunc()">
+                                <i class="fas fa-cart-plus mb-1" style="font-size: 18px;"></i>
+                                Thêm vào giỏ
+                            </button>
+                            <button class="btn-installment">
+                                <i class="fas fa-credit-card mb-1" style="font-size: 18px;"></i>
+                                Trả góp 0%
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="policy-box">
+                        <div class="policy-item"><i class="fas fa-shield-alt"></i> Bảo hành chính hãng 12 tháng</div>
+                        <div class="policy-item"><i class="fas fa-shipping-fast"></i> Giao hàng toàn quốc miễn phí</div>
+                        <div class="policy-item"><i class="fas fa-undo"></i> Hư gì đổi nấy 30 ngày</div>
+                        <div class="policy-item"><i class="fas fa-headset"></i> Hỗ trợ kỹ thuật trọn đời</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-section">
+    <div class="container">
+        <div class="row gy-4"> <div class="col-lg-4 col-md-6">
+                <div class="footer-logo-container mb-3">
+                    <img src="../img/log.png" alt="TechZone Logo" class="img-fluid" style="height: 70px; filter: brightness(0) invert(1);"> 
+                </div>
+                <p class="footer-desc">
+                    TechZone - Hệ thống bán lẻ điện thoại, máy tính bảng, phụ kiện chính hãng uy tín hàng đầu. Cam kết chất lượng, bảo hành trọn đời.
+                </p>
+                <div class="social-links mt-4">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-youtube"></i></a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a> </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Hỗ Trợ Khách Hàng</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Tra cứu bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Thông Tin Liên Hệ</h5>
+                <ul class="footer-contact list-unstyled">
+                    <li>
+                        <i class="ti-location-pin"></i>
+                        <span>12 Nguyễn Văn Bảo, Gò Vấp, TP.HCM</span>
+                    </li>
+                    <li>
+                        <i class="ti-mobile"></i>
+                        <span>1900 888 999 (8h - 22h)</span>
+                    </li>
+                    <li>
+                        <i class="ti-email"></i>
+                        <span>support@techzone.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Chấp Nhận Thanh Toán</h5>
+                <div class="payment-methods mb-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" height="30">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Mastercard" height="30">
+                    <img src="../img/momo.png" alt="MoMo" height="30">
+                </div>
+                
+                <h5 class="footer-heading">Đăng Ký Nhận Tin</h5>
+                <p class="small text-white-50 mb-2">Nhận thông tin khuyến mãi mới nhất</p>
+                <div class="subscribe-form position-relative">
+                    <input type="email" class="form-control rounded-pill pe-5" placeholder="Email của bạn...">
+                    <button class="btn btn-success rounded-circle position-absolute top-0 end-0 m-1 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                        <i class="ti-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-area mt-5 py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="m-0 text-white opacity-75">© 2026 <b>TechZone</b>. All Right Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end d-none d-md-block">
+                    <p class="m-0 text-white opacity-75">Designed by TechZone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+    <button class="to-top" href="#"><i class="ti-angle-double-up"></i></button>
+    <button class="contact-btn" href="#"><a href="../contact.html"><i class="ti-headphone-alt"></i></a></button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../main.js"></script>
+    <script>
+        // === LOGIC JS (GIỮ NGUYÊN ĐỂ KHÔNG LỖI) ===
+        let currentPrice = 12490000;
+        let baseName = "iPhone 16e";
+        let currentStorage = "128GB";
+        let currentColor = "Đen";
+        let currentImage = "../img/iphone16e/iphone16e-1.jpg";
+
+        function chooseStorage(el, price) {
+            document.querySelectorAll('.btn-storage').forEach(btn => btn.classList.remove('active-style'));
+            el.classList.add('active-style');
+            currentPrice = price;
+            currentStorage = el.querySelector('span').innerText;
+            document.getElementById('displayPrice').innerText = price.toLocaleString('vi-VN') + '₫';
+        }
+
+        function chooseColor(el, colorName) {
+            document.querySelectorAll('.btn-color').forEach(btn => btn.classList.remove('active-style'));
+            el.classList.add('active-style');
+            currentColor = colorName;
+        }
+
+        function changeImage(el, src) {
+            document.getElementById('mainImage').src = src;
+            currentImage = src;
+            document.querySelectorAll('.thumb-item').forEach(img => img.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function addToCartFunc() {
+            let fullName = `${baseName} ${currentStorage} - ${currentColor}`;
+            if(typeof addToCart === "function") {
+                addToCart(fullName, "iPhone", currentImage, currentPrice);
+                alert("Đã thêm: " + fullName);
+            } else {
+                alert("Lỗi kết nối giỏ hàng (main.js chưa load)");
+            }
+        }
+
+        function buyNow() { addToCartFunc(); window.location.href = "../cart.html"; }
+
+        // --- LOGIC CHUYỂN ẢNH ---
+        const images = [
+            "../img/iphone16e/iphone16e-1.jpg",
+            "../img/iphone16e/iphone16e-2.jpg",
+            "../img/iphone16e/iphone16e-3.jpg",
+            "../img/iphone16e/iphone16e-4.jpg", 
+            "../img/iphone16e/iphone16e-5.jpg", 
+            "../img/iphone16e/iphone16e-6.jpg"
+        ];
+
+        let currentIndex = 0; // Vị trí đang xem
+
+        // Hàm cập nhật ảnh
+        function updateGallery() {
+            const img = document.getElementById('mainImage');
+            img.src = images[currentIndex];
+            
+            // Cập nhật active cho ảnh nhỏ bên dưới (nếu có)
+            document.querySelectorAll('.thumb-item').forEach((item, index) => {
+                if (index === currentIndex) item.classList.add('active');
+                else item.classList.remove('active');
+            });
+        }
+
+        // Bấm nút Next
+        function nextImage() {
+            currentIndex++;
+            if (currentIndex >= images.length) currentIndex = 0; // Quay về đầu
+            updateGallery();
+        }
+
+        // Bấm nút Prev
+        function prevImage() {
+            currentIndex--;
+            if (currentIndex < 0) currentIndex = images.length - 1; // Quay về cuối
+            updateGallery();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPhone - TechZone</title>
+    <!--Themify Icon-->
+    <link
+      rel="stylesheet"
+      href="./assets/fonts/themify-icons/themify-icons.css"
+    />
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Boostrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Header & Footer CSS -->
+    <link rel="stylesheet" href="./assets/css/header&footer.css" />
+    <style>
+      :root {
+        --primary-color: #71b979;
+        --hover-color: #5a9e62;
+        --price-color: #d70018;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        font-family: "Quicksand", sans-serif;
+      }
+
+      .toolbar-container {
+        background: white;
+        padding: 20px 0;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        margin-bottom: 30px;
+      }
+
+      .search-box {
+        position: relative;
+        width: 300px;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 10px 15px 10px 45px;
+        border-radius: 50px;
+        border: 1px solid #eee;
+        background: #fcfcfc;
+        transition: 0.3s;
+      }
+
+      .search-box input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(113, 185, 121, 0.2);
+        outline: none;
+        background: white;
+      }
+
+      .search-box .material-symbols-outlined {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        cursor: pointer;
+      }
+
+      /* Nút Lọc */
+      .filter-btn {
+        border: none;
+        background: #f1f1f1;
+        color: #555;
+        padding: 8px 25px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin: 0 5px;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--primary-color);
+        color: white;
+        box-shadow: 0 4px 10px rgba(113, 185, 121, 0.4);
+      }
+
+      /* --- CARD SẢN PHẨM (Đẹp hơn) --- */
+      .product-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        border: none;
+        transition: all 0.4s ease;
+        position: relative;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin: 3px;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        /* Bay lên */
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Nhãn giảm giá / Mới */
+      .badge-overlay {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 2;
+        padding: 5px 10px;
+        border-radius: 8px;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .badge-new {
+        background: linear-gradient(45deg, #ff512f, #dd2476);
+      }
+
+      /* Màu Gradient cam hồng */
+      .badge-sale {
+        background: linear-gradient(45deg, #11998e, #38ef7d);
+      }
+
+      /* Màu Gradient xanh */
+
+      .card-img-wrapper {
+        padding: 20px;
+        text-align: center;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .card-img-wrapper img {
+        max-height: 100%;
+        max-width: 100%;
+        transition: 0.5s;
+      }
+
+      .product-card:hover .card-img-wrapper img {
+        transform: scale(1.1);
+        /* Phóng to ảnh khi hover */
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      /* Sửa lỗi code vàng: Dùng white-space: nowrap */
+      .product-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 5px;
+        white-space: nowrap;
+        /* Giữ trên 1 dòng */
+        overflow: hidden;
+        /* Ẩn phần thừa */
+        text-overflow: ellipsis;
+        /* Thêm dấu ... */
+        cursor: pointer;
+      }
+
+      .product-title:hover {
+        color: var(--primary-color);
+      }
+
+      .price-current {
+        color: var(--price-color);
+        font-weight: 800;
+        font-size: 18px;
+      }
+
+      .price-old {
+        color: #aaa;
+        text-decoration: line-through;
+        font-size: 13px;
+        margin-left: 10px;
+      }
+
+      .rating-star {
+        color: #ffc107;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .btn-buy {
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        background: transparent;
+        font-weight: 700;
+        padding: 10px;
+        border-radius: 12px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .btn-buy:hover {
+        background: var(--primary-color);
+        color: white;
+        box-shadow: 0 5px 15px rgba(113, 185, 121, 0.4);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header-wrapper">
+      <div class="top-bar d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center py-1">
+            <div class="top-bar-left d-flex gap-3">
+              <span><i class="bi bi-receipt"></i> Xuất VAT đầy đủ</span>
+              <span
+                ><i class="bi bi-truck"></i> Giao nhanh - Miễn phí đơn
+                300k</span
+              >
+              <span
+                ><i class="bi bi-arrow-repeat"></i> Thu cũ đổi mới tiết
+                kiệm</span
+              >
+            </div>
+            <div class="top-bar-right d-flex gap-3">
+              <a href="#"><i class="bi bi-geo-alt"></i> Cửa hàng gần bạn</a>
+              <a href="#"><i class="bi bi-box-seam"></i> Tra cứu đơn hàng</a>
+              <a href="tel:18002097"
+                ><i class="bi bi-telephone"></i> Hotline: 1800 2097</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header class="main-header sticky-top py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <a href="index.html" class="header-logo d-flex justify-content-between align-items-center text-decoration-none">
+              <img src="img/log.png" alt="TechZone" id="logo" />
+              <h1 class="logo-text">TECHZONE</h1>
+            </a>
+
+            <div class="category-wrapper d-none d-lg-block">
+              <button class="header-btn" id="btn-mega-menu">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+              </button>
+
+              <div class="mega-menu shadow-sm">
+                <ul class="mega-list">
+                  <li>
+                    <a href="about.html">
+                      <i class="bi bi-info-circle"></i> Giới thiệu TechZone
+                      <i class="bi bi-chevron-right ms-auto"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="news.html"
+                      ><i class="bi bi-newspaper"></i> Tin công nghệ
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li><hr class="dropdown-divider mx-3" /></li>
+
+                  <li class="has-submenu">
+                    <a href="javascript:void(0)" class="submenu-toggle">
+                      <i class="bi bi-phone"></i> Điện thoại, Tablet
+                      <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+
+                    <div class="sub-menu-accordion">
+                      <ul class="sub-list">
+                        <li>
+                          <a href="iphone.html"
+                            ><i class="bi bi-apple"></i> iPhone</a
+                          >
+                        </li>
+                        <li>
+                          <a href="samsung.html"
+                            ><i class="bi bi-phone-vibrate"></i> Samsung</a
+                          >
+                        </li>
+                        <li>
+                          <a href="oppo.html"
+                            ><i class="bi bi-phone-flip"></i> Oppo</a
+                          >
+                        </li>
+                        <li>
+                          <a href="xiaomi.html"
+                            ><i class="bi bi-device-ssd"></i> Xiaomi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="product.html"
+                            ><i class="bi bi-phone"></i> Tất cả sản phẩm</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-laptop"></i> Laptop
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-headphones"></i> Âm thanh, Mic
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-smartwatch"></i> Đồng hồ, Camera
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="header-location dropdown d-none d-xl-block">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-geo-alt"></i>
+                <div class="text-start ms-1">
+                  <div class="fw-bold">
+                    Chọn tỉnh thành <i class="bi bi-chevron-down"></i>
+                  </div>
+                </div>
+              </button>
+              <ul class="dropdown-menu border-0 shadow">
+                <li><a class="dropdown-item" href="#">Hồ Chí Minh</a></li>
+                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                <li><a class="dropdown-item" href="#">Thừa Thiên - Huế</a></li>
+              </ul>
+            </div>
+
+            <div class="header-search flex-grow-1">
+              <form action="product.html" class="search-form">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Bạn muốn mua gì hôm nay?"
+                />
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+
+            <a href="cart.html" class="header-btn text-decoration-none">
+              <div class="position-relative me-1">
+                <i class="bi bi-cart3"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </div>
+              <span class="d-none d-md-inline">Giỏ hàng</span>
+            </a>
+
+            <div class="dropdown">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-person-circle"></i>
+                <span class="ms-1 d-none d-lg-inline" id="display-username"
+                  >Đăng nhập</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end border-0 shadow"
+                id="user-menu"
+              >
+                <li>
+                  <a class="dropdown-item" href="login.html">Đăng Nhập</a>
+                </li>
+                <li><a class="dropdown-item" href="signup.html">Đăng Ký</a></li>
+              </ul>
+            </div>
+
+            <button
+              class="btn d-lg-none text-white fs-2 border-0"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container my-4">
+      <div class="toolbar-container px-4">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                  <a
+                    href="product.html"
+                    class="text-secondary text-decoration-none"
+                    >Sản phẩm</a
+                  >
+                </li>
+                <li class="breadcrumb-item active fw-bold text-success">
+                  iPhone
+                </li>
+              </ol>
+            </nav>
+          </div>
+
+          <div class="col-md-6 text-center" id="filterContainer">
+            <button
+              class="filter-btn active"
+              onclick="filterSelection('all', this)"
+            >
+              Tất cả
+            </button>
+            <button class="filter-btn" onclick="filterSelection('ip17', this)">
+              iPhone 17 Series
+            </button>
+            <button class="filter-btn" onclick="filterSelection('ip16', this)">
+              iPhone 16 Series
+            </button>
+          </div>
+
+          <div class="col-md-3 d-flex justify-content-end">
+            <div class="search-box">
+              <span class="material-symbols-outlined" onclick="searchProduct()"
+                >search</span
+              >
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Tìm kiếm..."
+                onkeyup="searchProduct()"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row g-4" id="productList">
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17promax.html'"
+            >
+              <img src="img/17promax/17promax-2.jpg" alt="iPhone 17 Pro Max" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-17promax.html'
+                "
+              >
+                iPhone 17 Pro Max 256GB
+              </h5>
+              <div>
+                <span class="price-current">37.690.000₫</span>
+                <span class="price-old">39.990.000₫</span>
+              </div>
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+              <button
+                class="btn-buy"
+                onclick="
+                  window.location.href = 'item_info/iphone-17promax.html'
+                "
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17promax.html'"
+            >
+              <img src="img/17promax/17promax-2.jpg" alt="iPhone 17 Pro Max" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-17promax.html'
+                "
+              >
+                iPhone 17 Pro Max 512GB
+              </h5>
+              <div>
+                <span class="price-current">42.990.000₫</span>
+                <span class="price-old">44.490.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="
+                  window.location.href = 'item_info/iphone-17promax.html'
+                "
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17promax.html'"
+            >
+              <img src="img/17promax/17promax-2.jpg" alt="iPhone 17 Pro Max" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-17promax.html'
+                "
+              >
+                iPhone 17 Pro Max 1T
+              </h5>
+              <div>
+                <span class="price-current">48.990.000₫</span>
+                <span class="price-old">50.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="
+                  window.location.href = 'item_info/iphone-17promax.html'
+                "
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17pro.html'"
+            >
+              <img src="img/17promax/17promax-7.jpg" alt="iPhone 17 Pro" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-17pro.html'"
+              >
+                iPhone 17 Pro 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">33.290.000₫</span>
+                <span class="price-old">34.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17pro.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17pro.html'"
+            >
+              <img src="img/17promax/17promax-7.jpg" alt="iPhone 17 Pro" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-17pro.html'"
+              >
+                iPhone 17 Pro 512GB
+              </h5>
+
+              <div>
+                <span class="price-current">40.590.000₫</span>
+                <span class="price-old">41.490.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17pro.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17pro.html'"
+            >
+              <img src="img/17promax/17promax-7.jpg" alt="iPhone 17 Pro" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-17pro.html'"
+              >
+                iPhone 17 Pro 1TB
+              </h5>
+
+              <div>
+                <span class="price-current">46.990.000₫</span>
+                <span class="price-old">37.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17pro.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17air.html'"
+            >
+              <img
+                src="img/iphoneair/iphoneair-2.jpg"
+                alt="iPhone 17 Pro Max"
+              />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-iphone-17air.html'
+                "
+              >
+                iPhone 17 Air 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">24.890.000₫</span>
+                <span class="price-old">31.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17air.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17air.html'"
+            >
+              <img
+                src="img/iphoneair/iphoneair-2.jpg"
+                alt="iPhone 17 Pro Max"
+              />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-iphone-17air.html'
+                "
+              >
+                iPhone 17 Air 512GBGB
+              </h5>
+
+              <div>
+                <span class="price-current">31.490.000₫</span>
+                <span class="price-old">38.490.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17air.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">New</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17air.html'"
+            >
+              <img
+                src="img/iphoneair/iphoneair-2.jpg"
+                alt="iPhone 17 Pro Max"
+              />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-iphone-17air.html'
+                "
+              >
+                iPhone 17 Air 1TB
+              </h5>
+
+              <div>
+                <span class="price-current">35.990.000₫</span>
+                <span class="price-old">44.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17air.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">Hot</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17.html'"
+            >
+              <img src="img/iphone17/iphone17-2.jpg" alt="iPhone 17 Pro Max" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-iphone-17.html'
+                "
+              >
+                iPhone 17 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">24.190.000₫</span>
+                <span class="price-old">24.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 product-item ip17">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">Hot</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-17.html'"
+            >
+              <img src="img/iphone17/iphone17-2.jpg" alt="iPhone 17 Pro Max" />
+            </div>
+
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-iphone-17.html'
+                "
+              >
+                iPhone 17 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">30.490.000₫</span>
+                <span class="price-old">31.490.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-17.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- 16 series -->
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">-10%</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16promax.html'"
+            >
+              <img
+                src="img/iphone16prm/iphone16prm-2.jpg"
+                alt="iPhone 16 Pro Max"
+              />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-16promax.html'
+                "
+              >
+                iPhone 16 Pro Max 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">31.490.000₫</span>
+                <span class="price-old">34.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="
+                  window.location.href = 'item_info/iphone-16promax.html'
+                "
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">-2%</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16promax.html'"
+            >
+              <img
+                src="img/iphone16prm/iphone16prm-2.jpg"
+                alt="iPhone 16 Pro Max"
+              />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-16promax.html'
+                "
+              >
+                iPhone 16 Pro Max 512GB
+              </h5>
+
+              <div>
+                <span class="price-current">39.490.000₫</span>
+                <span class="price-old">40.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="
+                  window.location.href = 'item_info/iphone-16promax.html'
+                "
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">Sắp về hàng</span>
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16promax.html'"
+            >
+              <img
+                src="img/iphone16prm/iphone16prm-2.jpg"
+                alt="iPhone 16 Pro Max"
+              />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="
+                  window.location.href = 'item_info/iphone-16promax.html'
+                "
+              >
+                iPhone 16 Pro Max 1TB
+              </h5>
+
+              <div>
+                <span class="price-current">43.990.000₫</span>
+                <span class="price-old">46.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="
+                  window.location.href = 'item_info/iphone-16promax.html'
+                "
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">Best Seller</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16pro.html'"
+            >
+              <img
+                src="img/iphone16prm/iphone16prm-3.jpg"
+                alt="iPhone 16 Pro"
+              />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16pro.html'"
+              >
+                iPhone 16 Pro 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">28.590.000₫</span>
+                <span class="price-old">31.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16pro.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">Best Seller</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16pro.html'"
+            >
+              <img
+                src="img/iphone16prm/iphone16prm-3.jpg"
+                alt="iPhone 16 Pro"
+              />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16pro.html'"
+              >
+                iPhone 16 Pro 512GB
+              </h5>
+
+              <div>
+                <span class="price-current">33.490.000₫</span>
+                <span class="price-old">37.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16pro.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-new">Sắp về hàng</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16pro.html'"
+            >
+              <img
+                src="img/iphone16prm/iphone16prm-3.jpg"
+                alt="iPhone 16 Pro"
+              />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16pro.html'"
+              >
+                iPhone 16 Pro 1TB
+              </h5>
+
+              <div>
+                <span class="price-current">37.690.000₫</span>
+                <span class="price-old">43.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16pro.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">-26%</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16e.html'"
+            >
+              <img src="img/iphone16e/iphone16e-1.jpg" alt="iPhone 16e" />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16e.html'"
+              >
+                iPhone 16e 128GB
+              </h5>
+
+              <div>
+                <span class="price-current">12.490.000₫</span>
+                <span class="price-old">16.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16e.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">-23%</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16e.html'"
+            >
+              <img src="img/iphone16e/iphone16e-1.jpg" alt="iPhone 16e" />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16e.html'"
+              >
+                iPhone 16e 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">15.490.000₫</span>
+                <span class="price-old">19.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16e.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">-15%</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16.html'"
+            >
+              <img src="img/iphone16/iphone16-1.jpg" alt="iPhone 16" />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16.html'"
+              >
+                iPhone 16 256GB
+              </h5>
+
+              <div>
+                <span class="price-current">19.590.000₫</span>
+                <span class="price-old">22.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 product-item ip16">
+          <div class="product-card">
+            <span class="badge-overlay badge-sale">-13%</span>
+
+            <div
+              class="card-img-wrapper"
+              onclick="window.location.href = 'item_info/iphone-16.html'"
+            >
+              <img src="img/iphone16/iphone16-1.jpg" alt="iPhone 16" />
+            </div>
+            <div class="card-content">
+              <h5
+                class="product-title"
+                onclick="window.location.href = 'item_info/iphone-16.html'"
+              >
+                iPhone 16 512GB
+              </h5>
+
+              <div>
+                <span class="price-current">27.990.000₫</span>
+                <span class="price-old">31.990.000₫</span>
+              </div>
+
+              <div class="rating-star">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+
+              <button
+                class="btn-buy"
+                onclick="window.location.href = 'item_info/iphone-16.html'"
+              >
+                <i class="ti-arrow-right"></i> Xem Chi Tiết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="to-top" href="#"><i class="ti-angle-double-up"></i></button>
+    <button class="contact-btn" href="#">
+      <a href="contact.html"><i class="ti-headphone-alt"></i></a>
+    </button>
+    <!--Footer-->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo-container mb-3">
+              <img
+                src="./img/log.png"
+                alt="TechZone Logo"
+                class="img-fluid"
+                style="height: 70px; filter: brightness(0) invert(1)"
+              />
+            </div>
+            <p class="footer-desc">
+              TechZone - Hệ thống bán lẻ điện thoại, máy tính bảng, phụ kiện
+              chính hãng uy tín hàng đầu. Cam kết chất lượng, bảo hành trọn đời.
+            </p>
+            <div class="social-links mt-4">
+              <a href="#"><i class="ti-facebook"></i></a>
+              <a href="#"><i class="ti-youtube"></i></a>
+              <a href="#"><i class="ti-instagram"></i></a>
+              <a href="#"><i class="ti-twitter-alt"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-heading">Hỗ Trợ Khách Hàng</h5>
+            <ul class="footer-links list-unstyled">
+              <li><a href="#">Tra cứu bảo hành</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Hướng dẫn mua hàng</a></li>
+              <li><a href="#">Chính sách bảo mật</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-heading">Thông Tin Liên Hệ</h5>
+            <ul class="footer-contact list-unstyled">
+              <li>
+                <i class="ti-location-pin"></i>
+                <span>12 Nguyễn Văn Bảo, Gò Vấp, TP.HCM</span>
+              </li>
+              <li>
+                <i class="ti-mobile"></i>
+                <span>1900 888 999 (8h - 22h)</span>
+              </li>
+              <li>
+                <i class="ti-email"></i>
+                <span>support@techzone.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-heading">Chấp Nhận Thanh Toán</h5>
+            <div class="payment-methods mb-4">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/196/196578.png"
+                alt="Visa"
+                height="30"
+              />
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/196/196566.png"
+                alt="Mastercard"
+                height="30"
+              />
+              <img src="img/momo.png" alt="MoMo" height="30" />
+            </div>
+
+            <h5 class="footer-heading">Đăng Ký Nhận Tin</h5>
+            <p class="small text-white-50 mb-2">
+              Nhận thông tin khuyến mãi mới nhất
+            </p>
+            <div class="subscribe-form position-relative">
+              <input
+                type="email"
+                class="form-control rounded-pill pe-5"
+                placeholder="Email của bạn..."
+              />
+              <button
+                class="btn btn-success rounded-circle position-absolute top-0 end-0 m-1 d-flex align-items-center justify-content-center"
+                style="width: 38px; height: 38px"
+              >
+                <i class="ti-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright-area mt-5 py-3">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="m-0 text-white opacity-75">
+                © 2026 <b>TechZone</b>. All Right Reserved.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end d-none d-md-block">
+              <p class="m-0 text-white opacity-75">Designed by TechZone</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/dropdown.js"></script>
+  <script src="main.js"></script>
+  <script>
+    const toTopBtn = document.querySelector(".to-top");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 50) {
+        toTopBtn.classList.add("active");
+      } else {
+        toTopBtn.classList.remove("active");
+      }
+    });
+
+    $(document).ready(function () {
+      $(".to-top").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 800);
+        return false;
+      });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+    src="https://kit.fontawesome.com/your-font-awesome-kit.js"
+    crossorigin="anonymous"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <script src="main.js"></script>
+  <script>
+    // LOGIC LỌC SẢN PHẨM
+    function filterSelection(c, btn) {
+      var x = document.getElementsByClassName("product-item");
+      if (c == "all") c = "";
+      for (var i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        if (x[i].className.indexOf(c) > -1) {
+          x[i].style.display = "block";
+        }
+      }
+
+      // 2. Xử lý nút active
+      var btns = document.getElementsByClassName("filter-btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.remove("active");
+      }
+      if (btn) btn.classList.add("active");
+    }
+    function searchProduct() {
+      var input, filter, container, items, title, i, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      container = document.getElementById("productList");
+      items = container.getElementsByClassName("product-item");
+
+      for (i = 0; i < items.length; i++) {
+        title = items[i].querySelector(".product-title");
+        txtValue = title.textContent || title.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          items[i].style.display = "";
+        } else {
+          items[i].style.display = "none";
+        }
+      }
+    }
+
+    // Gọi hàm kiểm tra đăng nhập
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof checkLoginStatus === "function") checkLoginStatus();
+      filterSelection("all", document.querySelector(".filter-btn.active")); // Chạy lọc mặc định
+    });
+  </script>
+</html>

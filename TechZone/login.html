@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - TechZone</title>
+     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/header&footer.css">
+
+    <style>
+        :root {
+            --primary-green: #71b979;
+            --dark-green: #5a9e62;
+            --light-green: #eef7f0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f0f9f2 0%, #dff0e2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(113, 185, 121, 0.15);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            border: 1px solid white;
+        }
+
+        /* Cột trái: Ảnh (Đảo ngược vị trí so với trang Đăng ký để tạo cảm giác mới lạ) */
+        .login-img {
+            width: 45%;
+            background: url('./img/log.png') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            order: 2; /* Đẩy ảnh sang phải */
+        }
+        .login-img::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(113, 185, 121, 0.85), rgba(40, 160, 80, 0.85));
+        }
+        .img-content {
+            position: relative; z-index: 2; color: white; text-align: center; padding: 30px;
+        }
+        .img-content h2 { font-weight: 800; margin-bottom: 15px; font-size: 2rem; }
+        .img-content p { font-size: 15px; opacity: 0.9; margin-bottom: 25px; }
+
+        /* Cột phải: Form */
+        .login-form-wrapper {
+            width: 55%;
+            padding: 50px 40px;
+            order: 1; /* Đẩy form sang trái */
+        }
+
+        .form-title {
+            color: var(--primary-green);
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-subtitle {
+            color: #888; font-size: 14px; margin-bottom: 30px;
+        }
+
+        /* Style Input */
+        .input-group-text {
+            background: var(--light-green);
+            border: 1px solid #e0e0e0;
+            border-right: none;
+            color: var(--primary-green);
+        }
+        .form-control {
+            border: 1px solid #e0e0e0;
+            border-left: none;
+            padding: 12px;
+            background-color: #fcfcfc;
+        }
+        .form-control:focus {
+            border-color: var(--primary-green);
+            box-shadow: none;
+            background-color: white;
+        }
+        .input-group:focus-within .input-group-text { border-color: var(--primary-green); }
+
+        /* Nút Login */
+        .btn-login {
+            background: var(--primary-green);
+            color: white; font-weight: 700;
+            padding: 12px; border-radius: 50px;
+            border: none; width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(113, 185, 121, 0.3);
+            margin-top: 10px;
+        }
+        .btn-login:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .forgot-pass {
+            font-size: 13px; color: #666; text-decoration: none; display: block; text-align: right; margin-bottom: 20px;
+        }
+        .forgot-pass:hover { color: var(--primary-green); text-decoration: underline; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .login-img { display: none; }
+            .login-form-wrapper { width: 100%; padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+      <div class="top-bar d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center py-1">
+            <div class="top-bar-left d-flex gap-3">
+              <span><i class="bi bi-receipt"></i> Xuất VAT đầy đủ</span>
+              <span
+                ><i class="bi bi-truck"></i> Giao nhanh - Miễn phí đơn
+                300k</span
+              >
+              <span
+                ><i class="bi bi-arrow-repeat"></i> Thu cũ đổi mới tiết
+                kiệm</span
+              >
+            </div>
+            <div class="top-bar-right d-flex gap-3">
+              <a href="#"><i class="bi bi-geo-alt"></i> Cửa hàng gần bạn</a>
+              <a href="#"><i class="bi bi-box-seam"></i> Tra cứu đơn hàng</a>
+              <a href="tel:18002097"
+                ><i class="bi bi-telephone"></i> Hotline: 1800 2097</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header class="main-header sticky-top py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <a href="index.html" class="header-logo d-flex justify-content-between align-items-center text-decoration-none">
+              <img src="img/log.png" alt="TechZone" id="logo" />
+              <h1 class="logo-text">TECHZONE</h1>
+            </a>
+
+            <div class="category-wrapper d-none d-lg-block">
+              <button class="header-btn" id="btn-mega-menu">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+              </button>
+
+              <div class="mega-menu shadow-sm">
+                <ul class="mega-list">
+                  <li>
+                    <a href="about.html">
+                      <i class="bi bi-info-circle"></i> Giới thiệu TechZone
+                      <i class="bi bi-chevron-right ms-auto"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="news.html"
+                      ><i class="bi bi-newspaper"></i> Tin công nghệ
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li><hr class="dropdown-divider mx-3" /></li>
+
+                  <li class="has-submenu">
+                    <a href="javascript:void(0)" class="submenu-toggle">
+                      <i class="bi bi-phone"></i> Điện thoại, Tablet
+                      <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+
+                    <div class="sub-menu-accordion">
+                      <ul class="sub-list">
+                        <li>
+                          <a href="iphone.html"
+                            ><i class="bi bi-apple"></i> iPhone</a
+                          >
+                        </li>
+                        <li>
+                          <a href="samsung.html"
+                            ><i class="bi bi-phone-vibrate"></i> Samsung</a
+                          >
+                        </li>
+                        <li>
+                          <a href="oppo.html"
+                            ><i class="bi bi-phone-flip"></i> Oppo</a
+                          >
+                        </li>
+                        <li>
+                          <a href="xiaomi.html"
+                            ><i class="bi bi-device-ssd"></i> Xiaomi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="product.html"
+                            ><i class="bi bi-phone"></i> Tất cả sản phẩm</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-laptop"></i> Laptop
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-headphones"></i> Âm thanh, Mic
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-smartwatch"></i> Đồng hồ, Camera
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="header-location dropdown d-none d-xl-block">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-geo-alt"></i>
+                <div class="text-start ms-1">
+                  <div class="fw-bold">
+                    Chọn tỉnh thành <i class="bi bi-chevron-down"></i>
+                  </div>
+                </div>
+              </button>
+              <ul class="dropdown-menu border-0 shadow">
+                <li><a class="dropdown-item" href="#">Hồ Chí Minh</a></li>
+                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                <li><a class="dropdown-item" href="#">Thừa Thiên - Huế</a></li>
+              </ul>
+            </div>
+
+            <div class="header-search flex-grow-1">
+              <form action="product.html" class="search-form">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Bạn muốn mua gì hôm nay?"
+                />
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+
+            <a href="cart.html" class="header-btn text-decoration-none">
+              <div class="position-relative me-1">
+                <i class="bi bi-cart3"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </div>
+              <span class="d-none d-md-inline">Giỏ hàng</span>
+            </a>
+
+            <div class="dropdown">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-person-circle"></i>
+                <span class="ms-1 d-none d-lg-inline" id="display-username"
+                  >Đăng nhập</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end border-0 shadow"
+                id="user-menu"
+              >
+                <li>
+                  <a class="dropdown-item" href="login.html">Đăng Nhập</a>
+                </li>
+                <li><a class="dropdown-item" href="signup.html">Đăng Ký</a></li>
+              </ul>
+            </div>
+
+            <button
+              class="btn d-lg-none text-white fs-2 border-0"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <main>
+        <div class="container d-flex justify-content-center">
+            <div class="login-card animate__animated animate__fadeInDown">
+                
+                <div class="login-img">
+                    <div class="img-content">
+                        <h2>Chào mừng trở lại!</h2>
+                        <p>Kết nối ngay với TechZone để không bỏ lỡ những ưu đãi công nghệ hấp dẫn nhất.</p>
+                        <a href="signup.html" class="btn btn-outline-light rounded-pill px-4 fw-bold">Tạo tài khoản mới</a>
+                    </div>
+                </div>
+
+                <div class="login-form-wrapper">
+                    <h3 class="form-title">Đăng Nhập</h3>
+                    <p class="form-subtitle">Vui lòng đăng nhập để tiếp tục</p>
+                    
+                    <form onsubmit="return login()"> 
+                        
+                        <div class="mb-3">
+                            <label class="form-label text-muted small fw-bold">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="ti-email"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label text-muted small fw-bold">Mật khẩu</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="ti-lock"></i></span>
+                                <input type="password" class="form-control" id="pwd" placeholder="Nhập mật khẩu" required>
+                            </div>
+                        </div>
+
+                        <a href="#" class="forgot-pass">Quên mật khẩu?</a>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn-login">ĐĂNG NHẬP</button>
+                        </div>
+
+                        <div class="text-center mt-4 d-md-none">
+                            <p class="mb-0 small">Chưa có tài khoản? <a href="signup.html" class="text-success fw-bold">Đăng ký ngay</a></p>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="index.html" class="text-decoration-none text-secondary small"><i class="ti-arrow-left"></i> Quay về trang chủ</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   <button class="to-top"><i class="ti-angle-double-up"></i></button>
+    <button class="contact-btn"><a href="contact.html"><i class="ti-headphone-alt"></i></a></button>
+    <footer class="footer-section">
+    <div class="container">
+        <div class="row gy-4"> <div class="col-lg-4 col-md-6">
+                <div class="footer-logo-container mb-3">
+                    <img src="./img/log.png" alt="TechZone Logo" class="img-fluid" style="height: 70px; filter: brightness(0) invert(1);"> 
+                </div>
+                <p class="footer-desc">
+                    TechZone - Hệ thống bán lẻ điện thoại, máy tính bảng, phụ kiện chính hãng uy tín hàng đầu. Cam kết chất lượng, bảo hành trọn đời.
+                </p>
+                <div class="social-links mt-4">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-youtube"></i></a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a> </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Hỗ Trợ Khách Hàng</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Tra cứu bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Thông Tin Liên Hệ</h5>
+                <ul class="footer-contact list-unstyled">
+                    <li>
+                        <i class="ti-location-pin"></i>
+                        <span>12 Nguyễn Văn Bảo, Gò Vấp, TP.HCM</span>
+                    </li>
+                    <li>
+                        <i class="ti-mobile"></i>
+                        <span>1900 888 999 (8h - 22h)</span>
+                    </li>
+                    <li>
+                        <i class="ti-email"></i>
+                        <span>support@techzone.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Chấp Nhận Thanh Toán</h5>
+                <div class="payment-methods mb-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" height="30">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Mastercard" height="30">
+                    <img src="img/momo.png" alt="MoMo" height="30">
+                </div>
+                
+                <h5 class="footer-heading">Đăng Ký Nhận Tin</h5>
+                <p class="small text-white-50 mb-2">Nhận thông tin khuyến mãi mới nhất</p>
+                <div class="subscribe-form position-relative">
+                    <input type="email" class="form-control rounded-pill pe-5" placeholder="Email của bạn...">
+                    <button class="btn btn-success rounded-circle position-absolute top-0 end-0 m-1 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                        <i class="ti-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-area mt-5 py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="m-0 text-white opacity-75">© 2026 <b>TechZone</b>. All Right Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end d-none d-md-block">
+                    <p class="m-0 text-white opacity-75">Designed by TechZone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="main.js"></script>
+<script>
+    function cancel() {
+        document.getElementById('email').value = "";
+        document.getElementById('pwd').value = "";
+    }
+
+    function turnback() {
+        window.history.back();
+    }
+
+    window.addEventListener('scroll', () => {
+        const toTopBtn = document.querySelector(".to-top");
+        if(window.pageYOffset > 50) toTopBtn.classList.add('active');
+        else toTopBtn.classList.remove('active');
+    });
+
+    $('.to-top').click(function(){
+        $('html, body').animate({scrollTop : 0}, 800);
+        return false;
+    });
+</script>
+</body>
+</html>

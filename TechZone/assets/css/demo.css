@@ -1,0 +1,266 @@
+/* --- TECHZONE BRAND COLORS --- */
+:root {
+    --primary: #71b979;          /* Xanh lá chủ đạo */
+    --primary-dark: #5a9e62;     /* Xanh đậm hơn khi hover */
+    --price-red: #d70018;        /* Màu đỏ cho giá */
+    --bg-body: #f3f4f6;          /* Nền xám nhạt */
+    --text-main: #333333;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-main);
+}
+
+/* --- 1. BANNER SLIDER --- */
+.slider-section {
+    background: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.swiper-slide img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary) !important;
+    background: rgba(255,255,255,0.8);
+    width: 40px; height: 40px; border-radius: 50%;
+}
+.swiper-button-next:after, .swiper-button-prev:after { font-size: 18px; font-weight: bold; }
+.swiper-pagination-bullet-active { background: var(--primary) !important; }
+
+/* --- 2. DANH MỤC SẢN PHẨM --- */
+.category-section {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.section-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-main);
+    border-left: 5px solid var(--primary);
+    padding-left: 10px;
+    margin: 0;
+}
+
+.view-all {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.view-all:hover { color: var(--primary-dark); }
+
+.cate-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.cate-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.cate-img {
+    width: 60px; height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.cate-name { font-weight: 600; font-size: 14px; }
+
+/* --- 3. CARD SẢN PHẨM --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.badge-sale {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--price-red);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.card-img-wrap {
+    height: 200px;
+    padding: 20px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+}
+.card-img-wrap img {
+    max-height: 100%; max-width: 100%;
+    transition: transform 0.5s;
+}
+.product-card:hover .card-img-wrap img { transform: scale(1.1); }
+
+.card-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* === ĐÃ SỬA LẠI PHẦN NÀY ĐỂ BỎ -WEBKIT-LINE-CLAMP === */
+.product-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    
+    /* 1. Thiết lập chiều cao dòng */
+    line-height: 1.4; /* Mỗi dòng cao gấp 1.4 lần cỡ chữ */
+    
+    /* 2. Tính toán chiều cao cố định cho 2 dòng */
+    /* 15px * 1.4 * 2 dòng = 42px */
+    height: 42px; 
+    
+    /* 3. Ẩn phần chữ thừa */
+    overflow: hidden;
+    
+    display: block; /* Dùng block thay vì -webkit-box */
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+/* ==================================================== */
+
+.product-card:hover .product-name { color: var(--primary); }
+
+.price-box { margin-bottom: 10px; }
+.price-new {
+    color: var(--price-red);
+    font-weight: 800;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.price-old {
+    color: #999;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+.rating i { font-size: 12px; color: #ffc107; }
+
+.btn-cart {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    font-weight: 700;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 10px;
+    display: block;
+}
+.btn-cart:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* --- 4. TIN TỨC --- */
+.news-item {
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--text-main);
+}
+.news-item:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.news-thumb {
+    width: 120px; height: 100px;
+    object-fit: cover;
+}
+.news-content { padding: 10px 15px; flex: 1; }
+
+/* === CŨNG SỬA PHẦN TIN TỨC CHO ĐỒNG BỘ === */
+.news-title {
+    font-size: 14px; 
+    font-weight: 700;
+    margin-bottom: 5px;
+    
+    line-height: 1.4;
+    height: 40px; /* 14px * 1.4 * 2 dòng ~ 39.2px -> làm tròn 40 */
+    overflow: hidden;
+    display: block;
+}
+/* ========================================== */
+
+.news-desc { 
+    font-size: 12px; 
+    color: var(--text-light);
+    /* Ẩn mô tả nếu dài quá 1 dòng */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+/* Responsive */
+@media (max-width: 992px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }

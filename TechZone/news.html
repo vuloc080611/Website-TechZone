@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Công Nghệ - TechZone</title>
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/header&footer.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        body { font-family: 'Quicksand', sans-serif; background-color: #f8f9fa; color: #333; }
+        .news-slider-section { margin-bottom: 40px; }
+        .swiper-slide img {
+            width: 100%; height: auto; object-fit: cover; border-radius: 0 0 15px 15px;
+        }
+        .news-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            height: 100%; 
+            display: flex; flex-direction: column;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .news-img-wrap { overflow: hidden; height: 220px; position: relative; }
+        .news-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .news-card:hover .news-img-wrap img { transform: scale(1.1); }
+
+        .news-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .news-meta {
+            font-size: 13px; color: #999; margin-bottom: 10px;
+            display: flex; gap: 15px;
+        }
+        .news-meta i { margin-right: 5px; color: #71B979; }
+
+        .news-title {
+            font-size: 18px; font-weight: 700; margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .news-title a { color: #333; text-decoration: none; transition: 0.2s; }
+        .news-title a:hover { color: #71B979; }
+
+        .news-excerpt { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+
+        .read-more-btn {
+            margin-top: auto; 
+            display: inline-block;
+            color: #71B979; font-weight: 600; text-decoration: none; font-size: 14px;
+        }
+        .read-more-btn:hover { text-decoration: underline; }
+
+        /* 3. Tin Nổi Bật (Hero News) */
+        .hero-news-card { display: flex; flex-direction: column; margin-bottom: 40px; }
+        .hero-news-img { width: 100%; height: 350px; border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+        .hero-news-img img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-news-content h2 { font-weight: 800; font-size: 28px; margin-bottom: 15px; }
+        .hero-news-content h2 a { color: #222; text-decoration: none; }
+        .hero-news-content h2 a:hover { color: #71B979; }
+
+        /* 4. Sidebar (Đã chuẩn hóa) */
+        .sidebar-wrapper { position: sticky; top: 90px; z-index: 10; }
+        .sidebar-widget {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0; overflow: hidden; margin-bottom: 25px;
+        }
+        .widget-header {
+            background: #71B979; color: #fff; padding: 15px 20px;
+            font-size: 16px; font-weight: 700; text-transform: uppercase;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .widget-menu { list-style: none; padding: 0; margin: 0; }
+        .widget-menu li { border-bottom: 1px dashed #eee; }
+        .widget-menu li:last-child { border-bottom: none; }
+        .widget-menu a {
+            display: flex; align-items: center; padding: 12px 20px;
+            color: #555; text-decoration: none; font-size: 15px; font-weight: 500;
+            transition: all 0.2s; border-left: 4px solid transparent; gap: 15px;
+        }
+        .widget-menu a i { width: 25px; text-align: center; color: #999; font-size: 16px; }
+        
+        .widget-menu a:hover, .widget-menu a.active {
+            background: #f9fdf9; color: #71B979; border-left-color: #71B979; padding-left: 25px;
+        }
+        .widget-menu a:hover i, .widget-menu a.active i { color: #71B979; }
+
+        /* Ads Banner */
+        .sidebar-ads img { width: 100%; border-radius: 12px; transition: transform 0.3s; }
+        .sidebar-ads:hover img { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* Tiêu đề section */
+        .section-heading {
+            border-left: 5px solid #71B979; padding-left: 15px;
+            margin-bottom: 30px; font-weight: 700; color: #333; text-transform: uppercase;
+        }
+
+        /* Nút To Top */
+        .to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #71B979; color: #fff; width: 45px; height: 45px;
+            border: none; border-radius: 50%; font-size: 20px; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(113, 185, 121, 0.4);
+            display: none; z-index: 999; transition: 0.3s;
+        }
+        .to-top:hover { background: #5da364; transform: translateY(-3px); }
+        .news-slider-section + .container .row .col-md-6 {
+            padding-left: 20px; 
+        }
+        @media (max-width: 768px) {
+            .hero-news-img { height: 250px; }
+            .sidebar-wrapper { position: static; margin-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-wrapper">
+      <div class="top-bar d-none d-lg-block">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center py-1">
+            <div class="top-bar-left d-flex gap-3">
+              <span><i class="bi bi-receipt"></i> Xuất VAT đầy đủ</span>
+              <span
+                ><i class="bi bi-truck"></i> Giao nhanh - Miễn phí đơn
+                300k</span
+              >
+              <span
+                ><i class="bi bi-arrow-repeat"></i> Thu cũ đổi mới tiết
+                kiệm</span
+              >
+            </div>
+            <div class="top-bar-right d-flex gap-3">
+              <a href="#"><i class="bi bi-geo-alt"></i> Cửa hàng gần bạn</a>
+              <a href="#"><i class="bi bi-box-seam"></i> Tra cứu đơn hàng</a>
+              <a href="tel:18002097"
+                ><i class="bi bi-telephone"></i> Hotline: 1800 2097</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header class="main-header sticky-top py-2">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-between gap-2">
+            <a href="index.html" class="header-logo d-flex justify-content-between align-items-center text-decoration-none">
+              <img src="img/log.png" alt="TechZone" id="logo" />
+              <h1 class="logo-text">TECHZONE</h1>
+            </a>
+
+            <div class="category-wrapper d-none d-lg-block">
+              <button class="header-btn" id="btn-mega-menu">
+                <i class="bi bi-list"></i>
+                <span>Danh mục</span>
+              </button>
+
+              <div class="mega-menu shadow-sm">
+                <ul class="mega-list">
+                  <li>
+                    <a href="about.html">
+                      <i class="bi bi-info-circle"></i> Giới thiệu TechZone
+                      <i class="bi bi-chevron-right ms-auto"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="news.html"
+                      ><i class="bi bi-newspaper"></i> Tin công nghệ
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li><hr class="dropdown-divider mx-3" /></li>
+
+                  <li class="has-submenu">
+                    <a href="javascript:void(0)" class="submenu-toggle">
+                      <i class="bi bi-phone"></i> Điện thoại, Tablet
+                      <i class="bi bi-chevron-down ms-auto"></i>
+                    </a>
+
+                    <div class="sub-menu-accordion">
+                      <ul class="sub-list">
+                        <li>
+                          <a href="iphone.html"
+                            ><i class="bi bi-apple"></i> iPhone</a
+                          >
+                        </li>
+                        <li>
+                          <a href="samsung.html"
+                            ><i class="bi bi-phone-vibrate"></i> Samsung</a
+                          >
+                        </li>
+                        <li>
+                          <a href="oppo.html"
+                            ><i class="bi bi-phone-flip"></i> Oppo</a
+                          >
+                        </li>
+                        <li>
+                          <a href="xiaomi.html"
+                            ><i class="bi bi-device-ssd"></i> Xiaomi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="product.html"
+                            ><i class="bi bi-phone"></i> Tất cả sản phẩm</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-laptop"></i> Laptop
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-headphones"></i> Âm thanh, Mic
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bi bi-smartwatch"></i> Đồng hồ, Camera
+                      <i class="bi bi-chevron-right ms-auto"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="header-location dropdown d-none d-xl-block">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-geo-alt"></i>
+                <div class="text-start ms-1">
+                  <div class="fw-bold">
+                    Chọn tỉnh thành <i class="bi bi-chevron-down"></i>
+                  </div>
+                </div>
+              </button>
+              <ul class="dropdown-menu border-0 shadow">
+                <li><a class="dropdown-item" href="#">Hồ Chí Minh</a></li>
+                <li><a class="dropdown-item" href="#">Hà Nội</a></li>
+                <li><a class="dropdown-item" href="#">Thừa Thiên - Huế</a></li>
+              </ul>
+            </div>
+
+            <div class="header-search flex-grow-1">
+              <form action="product.html" class="search-form">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Bạn muốn mua gì hôm nay?"
+                />
+                <button type="submit"><i class="bi bi-search"></i></button>
+              </form>
+            </div>
+
+            <a href="cart.html" class="header-btn text-decoration-none">
+              <div class="position-relative me-1">
+                <i class="bi bi-cart3"></i>
+                <span id="cart-count" class="cart-badge">0</span>
+              </div>
+              <span class="d-none d-md-inline">Giỏ hàng</span>
+            </a>
+
+            <div class="dropdown">
+              <button class="header-btn" data-bs-toggle="dropdown">
+                <i class="bi bi-person-circle"></i>
+                <span class="ms-1 d-none d-lg-inline" id="display-username"
+                  >Đăng nhập</span
+                >
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-end border-0 shadow"
+                id="user-menu"
+              >
+                <li>
+                  <a class="dropdown-item" href="login.html">Đăng Nhập</a>
+                </li>
+                <li><a class="dropdown-item" href="signup.html">Đăng Ký</a></li>
+              </ul>
+            </div>
+
+            <button
+              class="btn d-lg-none text-white fs-2 border-0"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#mobileSidebar"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    </div>
+    <main>
+        <div class="news-slider-section">
+            <div class="swiper myNewsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/ban1.jpg" alt="Banner 1"></div>
+                    <div class="swiper-slide"><img src="img/ban2.jpg" alt="Banner 2"></div>
+                    <div class="swiper-slide"><img src="img/ban3.jpg" alt="Banner 3"></div>
+                </div>
+                <div class="swiper-button-next text-white"></div>
+                <div class="swiper-button-prev text-white"></div>
+            </div>
+        </div>
+
+        <div class="container pb-5">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-secondary">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-success" aria-current="page">Tin tức công nghệ</li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <div class="col-lg-9 col-md-12 pe-lg-4">
+                    
+                    <div class="hero-news-card">
+                        <div class="hero-news-img shadow">
+                            <a href="https://vietnamnet.vn/nam-2025-la-nam-dau-tien-cua-ky-nguyen-ai-di-dong-2391857.html" target="_blank"><img src="img/news1.jpg" alt="Kỷ Nguyên AI"></a>
+                        </div>
+                        <div class="hero-news-content">
+                            <div class="news-meta mb-2">
+                                <span><i class="ti-calendar"></i> 06/02/2026</span>
+                                <span><i class="ti-user"></i> Admin TechZone</span>
+                                <span class="badge bg-danger">Nổi bật</span>
+                            </div>
+                            <h2><a href="https://vietnamnet.vn/nam-2025-la-nam-dau-tien-cua-ky-nguyen-ai-di-dong-2391857.html" target="_blank">Kỷ Nguyên AI: Hướng Đi Mới Đầy Triển Vọng Của Smartphone Hiện Đại</a></h2>
+                            <p class="text-secondary">Trí tuệ nhân tạo (AI) đang thay đổi cách chúng ta sử dụng điện thoại thông minh. Từ việc tối ưu hóa pin, chụp ảnh ban đêm cho đến trợ lý ảo thông minh...</p>
+                            <a href="https://vietnamnet.vn/nam-2025-la-nam-dau-tien-cua-ky-nguyen-ai-di-dong-2391857.html" target="_blank" class="btn btn-success rounded-pill px-4 mt-2">Đọc tiếp <i class="ti-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+
+                    <hr class="my-5 text-muted opacity-25">
+
+                    <h3 class="section-heading">Mới Cập Nhật</h3>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <div class="news-img-wrap">
+                                    <a href="https://cellphones.com.vn/sforum/smartphone-tang-phu-huynh-ong-ba-tet-2026" target="_blank"><img src="img/news5.png" alt="Chọn Smartphone"></a>
+                                    <div class="position-absolute top-0 end-0 m-2 badge bg-primary">Mẹo hay</div>
+                                </div>
+                                <div class="news-body">
+                                    <div class="news-meta">
+                                        <span><i class="ti-time"></i> 2 giờ trước</span>
+                                    </div>
+                                    <h4 class="news-title"><a href="https://cellphones.com.vn/sforum/smartphone-tang-phu-huynh-ong-ba-tet-2026" target="_blank">Bí Quyết Chọn Smartphone Phù Hợp Nhu Cầu 2026</a></h4>
+                                    <p class="news-excerpt">Không cần mua máy đắt nhất, hãy mua máy phù hợp nhất. Cùng điểm qua 5 tiêu chí quan trọng...</p>
+                                    <a href="https://cellphones.com.vn/sforum/smartphone-tang-phu-huynh-ong-ba-tet-2026" target="_blank" class="read-more-btn">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <div class="news-img-wrap">
+                                    <a href="https://caodang.fpt.edu.vn/tin-tuc-poly/internet-van-vat-iot-va-nha-thong-minh-lam-the-nao-cong-nghe-dang-thay-doi-ngoi-nha-cua-chung-ta.html" target="_blank"><img src="img/news4.jpg" alt="Công nghệ kết nối"></a>
+                                </div>
+                                <div class="news-body">
+                                    <div class="news-meta">
+                                        <span><i class="ti-time"></i> 1 ngày trước</span>
+                                    </div>
+                                    <h4 class="news-title"><a href="https://caodang.fpt.edu.vn/tin-tuc-poly/internet-van-vat-iot-va-nha-thong-minh-lam-the-nao-cong-nghe-dang-thay-doi-ngoi-nha-cua-chung-ta.html" target="_blank">Công Nghệ Kết Nối Vạn Vật (IoT) Trong Gia Đình</a></h4>
+                                    <p class="news-excerpt">Smartphone giờ đây là trung tâm điều khiển của ngôi nhà thông minh. Bạn đã tận dụng hết chưa?</p>
+                                    <a href="https://caodang.fpt.edu.vn/tin-tuc-poly/internet-van-vat-iot-va-nha-thong-minh-lam-the-nao-cong-nghe-dang-thay-doi-ngoi-nha-cua-chung-ta.html" target="_blank" class="read-more-btn">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <div class="news-img-wrap">
+                                    <a href="https://vneconomy.vn/techconnect/thi-truong-smartphone-viet-nam-chung-lai-thiet-bi-5g-doi-mat-rao-can-chi-phi.htm" target="_blank"><img src="img/news6.png" alt="Thị trường di động"></a>
+                                </div>
+                                <div class="news-body">
+                                    <div class="news-meta">
+                                        <span><i class="ti-time"></i> 2 ngày trước</span>
+                                    </div>
+                                    <h4 class="news-title"><a href="https://vneconomy.vn/techconnect/thi-truong-smartphone-viet-nam-chung-lai-thiet-bi-5g-doi-mat-rao-can-chi-phi.htm" target="_blank">Thị Trường Di Động Việt Nam: Cơ Hội Và Thách Thức</a></h4>
+                                    <p class="news-excerpt">Phân tích sự cạnh tranh khốc liệt giữa các ông lớn Samsung, Apple và các hãng Trung Quốc...</p>
+                                    <a href="https://vneconomy.vn/techconnect/thi-truong-smartphone-viet-nam-chung-lai-thiet-bi-5g-doi-mat-rao-can-chi-phi.htm" target="_blank" class="read-more-btn">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <div class="news-img-wrap">
+                                    <a href="https://vneconomy.vn/cuoc-dua-san-xuat-dien-thoai-gap-bat-dau-tang-toc.htm" target="_blank"><img src="img/news7.jpg" alt="Màn hình gập"></a>
+                                    <div class="position-absolute top-0 end-0 m-2 badge bg-warning text-dark">Xu hướng</div>
+                                </div>
+                                <div class="news-body">
+                                    <div class="news-meta">
+                                        <span><i class="ti-time"></i> 3 ngày trước</span>
+                                    </div>
+                                    <h4 class="news-title"><a href="https://vneconomy.vn/cuoc-dua-san-xuat-dien-thoai-gap-bat-dau-tang-toc.htm" target="_blank">Điện Thoại Màn Hình Gập: Có Đáng Để Đầu Tư?</a></h4>
+                                    <p class="news-excerpt">Review chi tiết ưu nhược điểm của các dòng Fold và Flip mới nhất trên thị trường hiện nay.</p>
+                                    <a a href="https://vneconomy.vn/cuoc-dua-san-xuat-dien-thoai-gap-bat-dau-tang-toc.htm" target="_blank" class="read-more-btn">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#"><i class="ti-angle-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link bg-success border-success" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link text-success" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link text-success" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link text-success" href="#"><i class="ti-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+                <div class="col-lg-3 col-md-12">
+                    <aside class="sidebar-wrapper">
+                        
+                        <div class="sidebar-widget">
+                            <div class="widget-header">
+                                <i class="ti-list"></i> DANH MỤC
+                            </div>
+                            <ul class="widget-menu">
+                                <li><a href="index.html"><i class="ti-home"></i> Trang chủ</a></li>
+                                <li><a href="about.html"><i class="ti-info-alt"></i> Giới thiệu</a></li>
+                                <li><a href="product.html"><i class="ti-mobile"></i> Sản phẩm</a></li>
+                                <li><a href="news.html" class="active"><i class="ti-files"></i> Tin tức</a></li>
+                                <li><a href="contact.html"><i class="ti-headphone-alt"></i> Liên hệ</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <div class="widget-header">
+                                <i class="ti-star"></i> XEM NHIỀU
+                            </div>
+                            <div class="p-3">
+                                <div class="d-flex mb-3 align-items-center">
+                                    <img src="img/news2.jpg" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;" alt="Small thumb">
+                                    <div class="ms-3">
+                                        <a href="#" class="text-decoration-none text-dark fw-bold d-block" style="font-size: 13px; line-height: 1.3;">Mẹo sạc pin iPhone đúng cách</a>
+                                        <span class="text-muted" style="font-size: 11px;">10k lượt xem</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3 align-items-center">
+                                    <img src="img/news3.jpg" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;" alt="Small thumb">
+                                    <div class="ms-3">
+                                        <a href="#" class="text-decoration-none text-dark fw-bold d-block" style="font-size: 13px; line-height: 1.3;">So sánh chip Snapdragon và Apple A</a>
+                                        <span class="text-muted" style="font-size: 11px;">8.5k lượt xem</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <img src="img/news1.jpg" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;" alt="Small thumb">
+                                    <div class="ms-3">
+                                        <a href="#" class="text-decoration-none text-dark fw-bold d-block" style="font-size: 13px; line-height: 1.3;">Top 5 điện thoại chơi game tốt</a>
+                                        <span class="text-muted" style="font-size: 11px;">5k lượt xem</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    
+    <button class="to-top" href="#"><i class="ti-angle-double-up"></i></button>
+    <button class="contact-btn" href="#">
+      <a href="contact.html"><i class="ti-headphone-alt"></i></a>
+    </button>
+    
+    <footer class="footer-section">
+    <div class="container">
+        <div class="row gy-4"> <div class="col-lg-4 col-md-6">
+                <div class="footer-logo-container mb-3">
+                    <img src="./img/log.png" alt="TechZone Logo" class="img-fluid" style="height: 70px; filter: brightness(0) invert(1);"> 
+                </div>
+                <p class="footer-desc">
+                    TechZone - Hệ thống bán lẻ điện thoại, máy tính bảng, phụ kiện chính hãng uy tín hàng đầu. Cam kết chất lượng, bảo hành trọn đời.
+                </p>
+                <div class="social-links mt-4">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-youtube"></i></a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-twitter-alt"></i></a> </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Hỗ Trợ Khách Hàng</h5>
+                <ul class="footer-links list-unstyled">
+                    <li><a href="#">Tra cứu bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Thông Tin Liên Hệ</h5>
+                <ul class="footer-contact list-unstyled">
+                    <li>
+                        <i class="ti-location-pin"></i>
+                        <span>12 Nguyễn Văn Bảo, Gò Vấp, TP.HCM</span>
+                    </li>
+                    <li>
+                        <i class="ti-mobile"></i>
+                        <span>1900 888 999 (8h - 22h)</span>
+                    </li>
+                    <li>
+                        <i class="ti-email"></i>
+                        <span>support@techzone.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Chấp Nhận Thanh Toán</h5>
+                <div class="payment-methods mb-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Visa" height="30">
+                    <img src="https://cdn-icons-png.flaticon.com/512/196/196566.png" alt="Mastercard" height="30">
+                    <img src="img/momo.png" alt="MoMo" height="30">
+                </div>
+                
+                <h5 class="footer-heading">Đăng Ký Nhận Tin</h5>
+                <p class="small text-white-50 mb-2">Nhận thông tin khuyến mãi mới nhất</p>
+                <div class="subscribe-form position-relative">
+                    <input type="email" class="form-control rounded-pill pe-5" placeholder="Email của bạn...">
+                    <button class="btn btn-success rounded-circle position-absolute top-0 end-0 m-1 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                        <i class="ti-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright-area mt-5 py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="m-0 text-white opacity-75">© 2026 <b>TechZone</b>. All Right Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end d-none d-md-block">
+                    <p class="m-0 text-white opacity-75">Designed by TechZone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+    </body>
+<style>
+    .swiper { width: 100%; height: 100%; }
+    .swiper-slide {
+        text-align: center; font-size: 18px; background: #fff;
+        display: flex; justify-content: center; align-items: center;
+    }
+    .slider .swiper-slide img {
+        display: block; width: 100%; height: 100%; object-fit: cover;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="main.js"></script>
+<script>
+    const toTopBtn = document.querySelector(".to-top");
+    window.addEventListener('scroll', () => {
+        if(window.pageYOffset > 50){
+            toTopBtn.classList.add('active');
+        } else {
+            toTopBtn.classList.remove('active');
+        }
+    })
+
+    $(document).ready(function(){
+        $('.to-top').click(function(){
+            $('html, body').animate({scrollTop : 0},800);
+            return false;
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".myNewsSwiper", {
+      spaceBetween: 0,
+      centeredSlides: true,
+      autoplay: { delay: 2500, disableOnInteraction: false },
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+    });
+</script>
+</html>
